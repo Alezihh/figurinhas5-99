@@ -211,11 +211,11 @@
   }
 
   .animate-scroll-left {
-    animation: scrollLeft 20s linear infinite;
+    animation: scrollLeft 12s linear infinite;
   }
 
   .animate-scroll-right {
-    animation: scrollRight 20s linear infinite;
+    animation: scrollRight 12s linear infinite;
   }
 
   @keyframes float {
