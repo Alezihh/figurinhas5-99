@@ -1,4 +1,5 @@
-import beforeAfter from "@/assets/before-after.png";
+import beforeImage from "@/assets/before-image.png";
+import afterImage from "@/assets/after-image.png";
 
 const TransformationSection = () => {
   return (
@@ -19,13 +20,30 @@ const TransformationSection = () => {
           </p>
         </div>
 
-        <div className="relative rounded-3xl overflow-hidden shadow-elevated">
-          <img
-            src={beforeAfter}
-            alt="Antes e Depois - Transformação dos Stories"
-            className="w-full h-auto"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-foreground/5 via-transparent to-foreground/5" />
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+          {/* Before */}
+          <div className="relative rounded-3xl overflow-hidden shadow-elevated bg-muted">
+            <div className="absolute top-4 left-4 z-10 px-4 py-2 bg-foreground/80 text-background rounded-full text-sm font-medium">
+              BEFORE STORIES
+            </div>
+            <img
+              src={beforeImage}
+              alt="Antes - Story sem elementos"
+              className="w-full h-auto aspect-[9/16] object-cover"
+            />
+          </div>
+
+          {/* After */}
+          <div className="relative rounded-3xl overflow-hidden shadow-elevated bg-muted">
+            <div className="absolute top-4 right-4 z-10 px-4 py-2 bg-primary text-primary-foreground rounded-full text-sm font-medium">
+              AFTER
+            </div>
+            <img
+              src={afterImage}
+              alt="Depois - Story com stickers elegantes"
+              className="w-full h-auto aspect-[9/16] object-cover"
+            />
+          </div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
