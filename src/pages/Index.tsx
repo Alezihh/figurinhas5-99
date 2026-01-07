@@ -4,6 +4,7 @@ import TransformationSection from "@/components/TransformationSection";
 import ProductSection from "@/components/ProductSection";
 import ForWhoSection from "@/components/ForWhoSection";
 import SocialProofSection from "@/components/SocialProofSection";
+import BonusSection from "@/components/BonusSection";
 import OfferSection from "@/components/OfferSection";
 import GuaranteeSection from "@/components/GuaranteeSection";
 import FinalCTASection from "@/components/FinalCTASection";
@@ -18,6 +19,7 @@ const Index = () => {
       <ProductSection />
       <ForWhoSection />
       <SocialProofSection />
+      <BonusSection />
       <OfferSection />
       <GuaranteeSection />
       <FinalCTASection />
