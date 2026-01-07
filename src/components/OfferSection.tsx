@@ -92,7 +92,12 @@ const OfferSection = () => {
                   </p>
                 </div>
 
-                <Button variant="outline" size="lg" className="w-full">
+                <Button 
+                  variant="outline" 
+                  size="lg" 
+                  className="w-full"
+                  onClick={() => window.open('https://pay.kirvano.com/1b5d2e84-1674-4f6a-99d9-e0785c5393e9', '_blank')}
+                >
                   Quero o Pack Básico
                 </Button>
               </div>
@@ -181,7 +186,12 @@ const OfferSection = () => {
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.98 }}
                 >
-                  <Button variant="cta" size="lg" className="w-full rounded-full py-6 text-base animate-pulse-border-slow">
+                  <Button 
+                    variant="cta" 
+                    size="lg" 
+                    className="w-full rounded-full py-6 text-base animate-pulse-border-slow"
+                    onClick={() => window.open('https://pay.kirvano.com/60074a30-5ccd-4e8d-8f1d-802e7dffa892', '_blank')}
+                  >
                     Baixar agora e elevar meu Instagram
                   </Button>
                 </motion.div>
