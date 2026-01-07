@@ -1,108 +1,147 @@
 import { Button } from "@/components/ui/button";
-import { Check, Shield, Zap, Gift } from "lucide-react";
+import { Check, Shield, Zap, Gift, Star, Crown } from "lucide-react";
 
-const offerItems = [
-  { text: "+150 Figurinhas Estéticas", value: "R$ 97" },
-  { text: "+80 Molduras Elegantes", value: "R$ 67" },
-  { text: "+120 Ícones Minimalistas", value: "R$ 57" },
-  { text: "+50 Divisores Femininos", value: "R$ 37" },
-  { text: "+100 Elementos Florais", value: "R$ 47" },
-  { text: "+30 Fundos & Texturas", value: "R$ 47" },
+const basicItems = [
+  "+100 Figurinhas Estéticas",
+  "+50 Molduras Elegantes",
+  "+80 Ícones Minimalistas",
+  "+30 Divisores Femininos",
+  "Acesso vitalício",
 ];
 
-const bonuses = [
-  { icon: Zap, text: "Bônus: Tutorial de uso", value: "R$ 47" },
-  { icon: Gift, text: "Bônus: Pack de Cores Harmônicas", value: "R$ 27" },
+const premiumItems = [
+  "+200 Figurinhas Estéticas",
+  "+100 Molduras Elegantes",
+  "+150 Ícones Minimalistas",
+  "+60 Divisores Femininos",
+  "+120 Elementos Florais",
+  "+50 Fundos & Texturas",
+  "Tutorial completo de uso",
+  "Pack de Cores Harmônicas",
+  "Atualizações gratuitas",
+  "Acesso vitalício",
 ];
 
 const OfferSection = () => {
-  const totalValue = 426;
-  const price = 47;
-
   return (
     <section id="oferta" className="bg-gradient-hero section-padding">
-      <div className="container-narrow">
+      <div className="container mx-auto px-4 max-w-5xl">
         <div className="text-center mb-12">
           <span className="inline-block px-4 py-1.5 bg-accent rounded-full text-sm text-foreground/70 mb-6">
             Oferta Especial
           </span>
 
           <h2 className="text-3xl md:text-4xl lg:text-5xl mb-6 text-foreground">
-            Tudo isso por um valor{" "}
-            <span className="text-gradient-gold italic">simbólico</span>
+            Escolha o plano{" "}
+            <span className="text-gradient-gold italic">ideal para você</span>
           </h2>
         </div>
 
-        <div className="bg-card rounded-3xl shadow-elevated border border-primary/10 overflow-hidden">
-          {/* Header */}
-          <div className="bg-gradient-rose p-6 text-center">
-            <p className="text-sm text-foreground/70 mb-1">Acesso Completo ao</p>
-            <h3 className="text-2xl md:text-3xl font-serif text-foreground">
-              Aesthetic Stories — Pack Premium
-            </h3>
-          </div>
-
-          {/* Content */}
-          <div className="p-8">
-            {/* Items */}
-            <div className="space-y-3 mb-8">
-              {offerItems.map((item, index) => (
-                <div key={index} className="flex items-center justify-between py-2 border-b border-border/30">
-                  <div className="flex items-center gap-3">
-                    <Check className="w-4 h-4 text-primary" />
-                    <span className="text-foreground">{item.text}</span>
-                  </div>
-                  <span className="text-muted-foreground line-through text-sm">{item.value}</span>
-                </div>
-              ))}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+          {/* Basic Plan */}
+          <div className="bg-card rounded-3xl shadow-card border border-border overflow-hidden">
+            <div className="bg-muted p-6 text-center">
+              <div className="flex items-center justify-center gap-2 mb-2">
+                <Star className="w-5 h-5 text-foreground/70" />
+                <p className="text-sm text-foreground/70 font-medium">Essencial</p>
+              </div>
+              <h3 className="text-xl md:text-2xl font-serif text-foreground">
+                Pack Básico
+              </h3>
             </div>
 
-            {/* Bonuses */}
-            <div className="bg-accent/50 rounded-2xl p-6 mb-8">
-              <p className="text-sm font-medium text-foreground/70 mb-4">Bônus Exclusivos:</p>
-              <div className="space-y-3">
-                {bonuses.map((bonus, index) => (
-                  <div key={index} className="flex items-center justify-between">
-                    <div className="flex items-center gap-3">
-                      <bonus.icon className="w-4 h-4 text-gold" />
-                      <span className="text-foreground">{bonus.text}</span>
-                    </div>
-                    <span className="text-muted-foreground line-through text-sm">{bonus.value}</span>
+            <div className="p-6 lg:p-8">
+              <div className="space-y-3 mb-8">
+                {basicItems.map((item, index) => (
+                  <div key={index} className="flex items-center gap-3">
+                    <Check className="w-4 h-4 text-primary flex-shrink-0" />
+                    <span className="text-foreground text-sm">{item}</span>
                   </div>
                 ))}
               </div>
+
+              <div className="text-center mb-6">
+                <p className="text-muted-foreground text-sm mb-1">
+                  Por apenas
+                </p>
+                <div className="flex items-baseline justify-center gap-1">
+                  <span className="text-4xl md:text-5xl font-serif text-foreground">R$ 19</span>
+                  <span className="text-muted-foreground">,90</span>
+                </div>
+                <p className="text-xs text-muted-foreground mt-2">
+                  Pagamento único
+                </p>
+              </div>
+
+              <Button variant="outline" size="lg" className="w-full">
+                Quero o Pack Básico
+              </Button>
+            </div>
+          </div>
+
+          {/* Premium Plan */}
+          <div className="bg-card rounded-3xl shadow-elevated border-2 border-primary overflow-hidden relative">
+            {/* Badge */}
+            <div className="absolute -top-0 left-1/2 -translate-x-1/2 px-4 py-1 bg-primary text-primary-foreground text-xs font-medium rounded-b-lg">
+              Mais Popular
             </div>
 
-            {/* Pricing */}
-            <div className="text-center mb-8">
-              <p className="text-muted-foreground mb-2">
-                De <span className="line-through">R$ {totalValue}</span> por apenas
-              </p>
-              <div className="flex items-center justify-center gap-2">
-                <span className="text-5xl md:text-6xl font-serif text-foreground">R$ {price}</span>
-                <span className="text-muted-foreground">,00</span>
+            <div className="bg-gradient-rose p-6 text-center">
+              <div className="flex items-center justify-center gap-2 mb-2">
+                <Crown className="w-5 h-5 text-gold" />
+                <p className="text-sm text-foreground/70 font-medium">Completo</p>
               </div>
-              <p className="text-sm text-muted-foreground mt-2">
-                Pagamento único · Acesso vitalício
-              </p>
+              <h3 className="text-xl md:text-2xl font-serif text-foreground">
+                Pack Premium
+              </h3>
             </div>
 
-            {/* CTA */}
-            <Button variant="cta" size="xl" className="w-full">
-              Baixar agora e elevar meu Instagram
-            </Button>
+            <div className="p-6 lg:p-8">
+              <div className="space-y-3 mb-8">
+                {premiumItems.map((item, index) => (
+                  <div key={index} className="flex items-center gap-3">
+                    <Check className="w-4 h-4 text-primary flex-shrink-0" />
+                    <span className="text-foreground text-sm">{item}</span>
+                  </div>
+                ))}
+              </div>
 
-            {/* Trust Badges */}
-            <div className="flex items-center justify-center gap-6 mt-6 text-sm text-muted-foreground">
-              <div className="flex items-center gap-2">
-                <Shield className="w-4 h-4" />
-                <span>Compra segura</span>
+              <div className="bg-accent/50 rounded-xl p-4 mb-6">
+                <div className="flex items-center gap-2 text-sm text-foreground/80">
+                  <Gift className="w-4 h-4 text-gold" />
+                  <span>Inclui todos os bônus exclusivos!</span>
+                </div>
               </div>
-              <div className="flex items-center gap-2">
-                <Zap className="w-4 h-4" />
-                <span>Acesso imediato</span>
+
+              <div className="text-center mb-6">
+                <p className="text-muted-foreground text-sm mb-1">
+                  De <span className="line-through">R$ 97</span> por apenas
+                </p>
+                <div className="flex items-baseline justify-center gap-1">
+                  <span className="text-4xl md:text-5xl font-serif text-foreground">R$ 39</span>
+                  <span className="text-muted-foreground">,90</span>
+                </div>
+                <p className="text-xs text-muted-foreground mt-2">
+                  Pagamento único · Melhor custo-benefício
+                </p>
               </div>
+
+              <Button variant="cta" size="lg" className="w-full">
+                Quero o Pack Premium
+              </Button>
             </div>
+          </div>
+        </div>
+
+        {/* Trust Badges */}
+        <div className="flex items-center justify-center gap-6 mt-8 text-sm text-muted-foreground">
+          <div className="flex items-center gap-2">
+            <Shield className="w-4 h-4" />
+            <span>Compra segura</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <Zap className="w-4 h-4" />
+            <span>Acesso imediato</span>
           </div>
         </div>
       </div>
