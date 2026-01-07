@@ -26,11 +26,11 @@ const StickersCarousel = () => {
     <div className="w-full overflow-hidden py-12 bg-foreground rounded-3xl">
       <div className="flex flex-col gap-6">
         {/* Row 1 - moves left */}
-        <div className="flex gap-8 animate-scroll-left">
+        <div className="flex gap-6 md:gap-8 animate-scroll-left">
           {[...stickersRow1, ...stickersRow1, ...stickersRow1].map((sticker, index) => (
             <div
               key={`row1-${index}`}
-              className="w-40 h-40 md:w-48 md:h-48 flex items-center justify-center p-4 shrink-0"
+              className="w-28 h-28 sm:w-36 sm:h-36 md:w-48 md:h-48 flex items-center justify-center p-3 md:p-4 shrink-0"
             >
               <img
                 src={sticker}
@@ -42,11 +42,11 @@ const StickersCarousel = () => {
         </div>
 
         {/* Row 2 - moves right */}
-        <div className="flex gap-8 animate-scroll-right">
+        <div className="flex gap-6 md:gap-8 animate-scroll-right">
           {[...stickersRow2, ...stickersRow2, ...stickersRow2].map((sticker, index) => (
             <div
               key={`row2-${index}`}
-              className="w-40 h-40 md:w-48 md:h-48 flex items-center justify-center p-4 shrink-0"
+              className="w-28 h-28 sm:w-36 sm:h-36 md:w-48 md:h-48 flex items-center justify-center p-3 md:p-4 shrink-0"
             >
               <img
                 src={sticker}
