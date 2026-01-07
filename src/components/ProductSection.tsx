@@ -44,7 +44,7 @@ const ProductSection = () => {
           </span>
 
           <h2 className="text-3xl md:text-4xl lg:text-5xl mb-6 text-foreground">
-            <span className="text-gradient-gold">+500 elementos</span> prontos para transformar seus Stories
+            <span className="text-gradient-gold">+15.000 elementos</span> prontos para transformar seus Stories
           </h2>
 
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">

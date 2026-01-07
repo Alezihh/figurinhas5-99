@@ -34,7 +34,7 @@ const FinalCTASection = () => {
           </Button>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 text-sm text-muted-foreground">
-            <span>✨ +500 elementos premium</span>
+            <span>✨ +15.000 elementos premium</span>
             <span className="hidden sm:inline">·</span>
             <span>🎁 Bônus exclusivos</span>
             <span className="hidden sm:inline">·</span>
