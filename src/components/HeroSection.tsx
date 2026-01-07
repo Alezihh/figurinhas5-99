@@ -9,7 +9,7 @@ const HeroSection = () => {
   };
 
   return (
-    <section className="relative min-h-screen bg-gradient-hero overflow-hidden">
+    <section className="relative bg-gradient-hero overflow-hidden pb-8 pt-16 md:pt-20">
       {/* Decorative elements */}
       <div className="absolute top-20 left-10 w-32 h-32 bg-rose/20 rounded-full blur-3xl" />
       <div className="absolute bottom-40 right-10 w-48 h-48 bg-champagne/30 rounded-full blur-3xl" />
