@@ -198,6 +198,10 @@
     animation: pulseBorder 1.5s ease-in-out infinite;
   }
 
+  .animate-pulse-border-slow {
+    animation: pulseBorder 2.5s ease-in-out infinite;
+  }
+
   .animate-scroll-up {
     animation: scrollUp 12s linear infinite;
   }

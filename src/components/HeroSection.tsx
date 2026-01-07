@@ -35,7 +35,7 @@ const HeroSection = () => {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-            <Button variant="cta" size="xl" onClick={scrollToOffer}>
+            <Button variant="cta" size="xl" onClick={scrollToOffer} className="animate-pulse-border-slow rounded-full">
               Quero meus Stories mais elegantes
             </Button>
             <Button variant="cta-outline" size="xl" onClick={scrollToOffer}>
