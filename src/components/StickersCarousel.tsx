@@ -7,9 +7,19 @@ import sticker6 from "@/assets/stickers/sticker-6.png";
 import sticker7 from "@/assets/stickers/sticker-7.png";
 import sticker8 from "@/assets/stickers/sticker-8.png";
 import sticker9 from "@/assets/stickers/sticker-9.png";
+import sticker10 from "@/assets/stickers/sticker-10.png";
+import sticker11 from "@/assets/stickers/sticker-11.png";
+import sticker12 from "@/assets/stickers/sticker-12.png";
+import sticker13 from "@/assets/stickers/sticker-13.png";
+import sticker14 from "@/assets/stickers/sticker-14.png";
+import sticker15 from "@/assets/stickers/sticker-15.png";
+import sticker16 from "@/assets/stickers/sticker-16.png";
+import sticker17 from "@/assets/stickers/sticker-17.png";
+import sticker18 from "@/assets/stickers/sticker-18.png";
+import sticker19 from "@/assets/stickers/sticker-19.png";
 
-const stickersRow1 = [sticker1, sticker2, sticker3, sticker4, sticker5];
-const stickersRow2 = [sticker6, sticker7, sticker8, sticker9, sticker1];
+const stickersRow1 = [sticker1, sticker4, sticker11, sticker13, sticker15, sticker16, sticker12, sticker19, sticker5];
+const stickersRow2 = [sticker6, sticker10, sticker14, sticker17, sticker8, sticker18, sticker9, sticker2, sticker3];
 
 const StickersCarousel = () => {
   return (
