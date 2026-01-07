@@ -62,7 +62,7 @@ const HeroSection = () => {
             <img
               src={heroMockup}
               alt="Preview do Pack Aesthetic Stories"
-              className="relative w-full max-w-md md:max-w-lg lg:max-w-xl xl:max-w-2xl drop-shadow-2xl"
+              className="relative w-full max-w-lg md:max-w-xl lg:max-w-2xl xl:max-w-3xl drop-shadow-2xl"
             />
           </div>
         </div>
