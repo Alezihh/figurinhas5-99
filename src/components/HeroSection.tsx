@@ -50,7 +50,7 @@ const HeroSection = () => {
             </div>
             <div className="flex items-center gap-2">
               <div className="w-2 h-2 rounded-full bg-primary" />
-              <span>+500 elementos</span>
+              <span>+15.000 elementos</span>
             </div>
           </div>
         </div>
