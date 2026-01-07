@@ -1,4 +1,6 @@
 import { Check, X } from "lucide-react";
+import { motion } from "framer-motion";
+import AnimatedSection from "./AnimatedSection";
 
 const ForWhoSection = () => {
   const forWho = [
@@ -19,55 +21,92 @@ const ForWhoSection = () => {
     <section className="bg-gradient-soft section-padding">
       <div className="container-narrow">
         <div className="text-center mb-12">
-          <span className="inline-block px-4 py-1.5 bg-accent rounded-full text-sm text-foreground/70 mb-6">
-            É Para Você?
-          </span>
+          <AnimatedSection>
+            <span className="inline-block px-4 py-1.5 bg-accent rounded-full text-sm text-foreground/70 mb-6">
+              É Para Você?
+            </span>
+          </AnimatedSection>
 
-          <h2 className="text-3xl md:text-4xl lg:text-5xl mb-6 text-foreground">
-            O <span className="italic">Aesthetic Stories</span> foi feito para mulheres que...
-          </h2>
+          <AnimatedSection delay={0.1}>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl mb-6 text-foreground">
+              O <span className="italic">Aesthetic Stories</span> foi feito para mulheres que...
+            </h2>
+          </AnimatedSection>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {/* For Who */}
-          <div className="bg-card rounded-3xl p-8 shadow-card border border-primary/10">
-            <h3 className="text-2xl font-serif mb-6 text-foreground flex items-center gap-3">
-              <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
-                <Check className="w-5 h-5 text-primary" />
-              </div>
-              É para você se...
-            </h3>
-            <ul className="space-y-4">
-              {forWho.map((item, index) => (
-                <li key={index} className="flex items-start gap-3">
-                  <div className="w-5 h-5 rounded-full bg-primary/10 flex items-center justify-center shrink-0 mt-0.5">
-                    <Check className="w-3 h-3 text-primary" />
-                  </div>
-                  <span className="text-foreground/80">{item}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
+          <AnimatedSection direction="left" delay={0.2}>
+            <motion.div 
+              className="bg-card rounded-3xl p-8 shadow-card border border-primary/10 h-full"
+              whileHover={{ scale: 1.02 }}
+              transition={{ duration: 0.3 }}
+            >
+              <h3 className="text-2xl font-serif mb-6 text-foreground flex items-center gap-3">
+                <motion.div 
+                  className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center"
+                  animate={{ scale: [1, 1.1, 1] }}
+                  transition={{ duration: 2, repeat: Infinity }}
+                >
+                  <Check className="w-5 h-5 text-primary" />
+                </motion.div>
+                É para você se...
+              </h3>
+              <ul className="space-y-4">
+                {forWho.map((item, index) => (
+                  <motion.li 
+                    key={index} 
+                    className="flex items-start gap-3"
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.1 * index, duration: 0.4 }}
+                    viewport={{ once: true }}
+                  >
+                    <motion.div 
+                      className="w-5 h-5 rounded-full bg-primary/10 flex items-center justify-center shrink-0 mt-0.5"
+                      whileHover={{ scale: 1.3 }}
+                    >
+                      <Check className="w-3 h-3 text-primary" />
+                    </motion.div>
+                    <span className="text-foreground/80">{item}</span>
+                  </motion.li>
+                ))}
+              </ul>
+            </motion.div>
+          </AnimatedSection>
 
           {/* Not For Who */}
-          <div className="bg-card/50 rounded-3xl p-8 border border-border/50">
-            <h3 className="text-2xl font-serif mb-6 text-foreground flex items-center gap-3">
-              <div className="w-10 h-10 rounded-full bg-muted flex items-center justify-center">
-                <X className="w-5 h-5 text-muted-foreground" />
-              </div>
-              Não é para você se...
-            </h3>
-            <ul className="space-y-4">
-              {notForWho.map((item, index) => (
-                <li key={index} className="flex items-start gap-3">
-                  <div className="w-5 h-5 rounded-full bg-muted flex items-center justify-center shrink-0 mt-0.5">
-                    <X className="w-3 h-3 text-muted-foreground" />
-                  </div>
-                  <span className="text-muted-foreground">{item}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
+          <AnimatedSection direction="right" delay={0.3}>
+            <motion.div 
+              className="bg-card/50 rounded-3xl p-8 border border-border/50 h-full"
+              whileHover={{ scale: 1.02 }}
+              transition={{ duration: 0.3 }}
+            >
+              <h3 className="text-2xl font-serif mb-6 text-foreground flex items-center gap-3">
+                <div className="w-10 h-10 rounded-full bg-muted flex items-center justify-center">
+                  <X className="w-5 h-5 text-muted-foreground" />
+                </div>
+                Não é para você se...
+              </h3>
+              <ul className="space-y-4">
+                {notForWho.map((item, index) => (
+                  <motion.li 
+                    key={index} 
+                    className="flex items-start gap-3"
+                    initial={{ opacity: 0, x: 20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.1 * index, duration: 0.4 }}
+                    viewport={{ once: true }}
+                  >
+                    <div className="w-5 h-5 rounded-full bg-muted flex items-center justify-center shrink-0 mt-0.5">
+                      <X className="w-3 h-3 text-muted-foreground" />
+                    </div>
+                    <span className="text-muted-foreground">{item}</span>
+                  </motion.li>
+                ))}
+              </ul>
+            </motion.div>
+          </AnimatedSection>
         </div>
       </div>
     </section>

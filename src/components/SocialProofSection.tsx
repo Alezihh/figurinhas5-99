@@ -1,4 +1,6 @@
 import { Star } from "lucide-react";
+import { motion } from "framer-motion";
+import AnimatedSection from "./AnimatedSection";
 
 const testimonials = [
   {
@@ -32,68 +34,95 @@ const SocialProofSection = () => {
     <section className="bg-background section-padding">
       <div className="container-wide">
         <div className="text-center mb-16">
-          <span className="inline-block px-4 py-1.5 bg-accent rounded-full text-sm text-foreground/70 mb-6">
-            Prova Social
-          </span>
+          <AnimatedSection>
+            <span className="inline-block px-4 py-1.5 bg-accent rounded-full text-sm text-foreground/70 mb-6">
+              Prova Social
+            </span>
+          </AnimatedSection>
 
-          <h2 className="text-3xl md:text-4xl lg:text-5xl mb-6 text-foreground">
-            Milhares de mulheres já{" "}
-            <span className="text-gradient-gold italic">transformaram</span>{" "}
-            seus Stories
-          </h2>
+          <AnimatedSection delay={0.1}>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl mb-6 text-foreground">
+              Milhares de mulheres já{" "}
+              <span className="text-gradient-gold italic">transformaram</span>{" "}
+              seus Stories
+            </h2>
+          </AnimatedSection>
 
-          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Veja o que elas estão dizendo sobre o Aesthetic Stories
-          </p>
+          <AnimatedSection delay={0.2}>
+            <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+              Veja o que elas estão dizendo sobre o Aesthetic Stories
+            </p>
+          </AnimatedSection>
         </div>
 
         {/* Stats */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16">
-          <div className="text-center p-6 bg-card rounded-2xl border border-border/50">
-            <p className="text-4xl font-serif text-gradient-gold mb-1">5.000+</p>
-            <p className="text-sm text-muted-foreground">Mulheres usando</p>
-          </div>
-          <div className="text-center p-6 bg-card rounded-2xl border border-border/50">
-            <p className="text-4xl font-serif text-gradient-gold mb-1">4.9</p>
-            <p className="text-sm text-muted-foreground">Nota média</p>
-          </div>
-          <div className="text-center p-6 bg-card rounded-2xl border border-border/50">
-            <p className="text-4xl font-serif text-gradient-gold mb-1">500+</p>
-            <p className="text-sm text-muted-foreground">Elementos</p>
-          </div>
-          <div className="text-center p-6 bg-card rounded-2xl border border-border/50">
-            <p className="text-4xl font-serif text-gradient-gold mb-1">100%</p>
-            <p className="text-sm text-muted-foreground">Satisfação</p>
-          </div>
+          {[
+            { value: "5.000+", label: "Mulheres usando" },
+            { value: "4.9", label: "Nota média" },
+            { value: "500+", label: "Elementos" },
+            { value: "100%", label: "Satisfação" }
+          ].map((stat, index) => (
+            <AnimatedSection key={index} delay={0.1 * (index + 1)}>
+              <motion.div 
+                className="text-center p-6 bg-card rounded-2xl border border-border/50"
+                whileHover={{ y: -8, scale: 1.03 }}
+                transition={{ duration: 0.3 }}
+              >
+                <motion.p 
+                  className="text-4xl font-serif text-gradient-gold mb-1"
+                  animate={{ scale: [1, 1.05, 1] }}
+                  transition={{ duration: 2, repeat: Infinity, delay: index * 0.2 }}
+                >
+                  {stat.value}
+                </motion.p>
+                <p className="text-sm text-muted-foreground">{stat.label}</p>
+              </motion.div>
+            </AnimatedSection>
+          ))}
         </div>
 
         {/* Testimonials Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {testimonials.map((testimonial, index) => (
-            <div
-              key={index}
-              className="bg-card rounded-2xl p-8 border border-border/50 hover:shadow-card transition-shadow"
-            >
-              <div className="flex gap-1 mb-4">
-                {[...Array(testimonial.rating)].map((_, i) => (
-                  <Star key={i} className="w-4 h-4 fill-gold text-gold" />
-                ))}
-              </div>
-              <p className="text-foreground/80 mb-6 italic font-serif text-lg">
-                "{testimonial.text}"
-              </p>
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-gradient-rose flex items-center justify-center">
-                  <span className="text-sm font-medium text-foreground">
-                    {testimonial.name.charAt(0)}
-                  </span>
+            <AnimatedSection key={index} delay={0.15 * (index + 1)} direction={index % 2 === 0 ? "left" : "right"}>
+              <motion.div
+                className="bg-card rounded-2xl p-8 border border-border/50 hover:shadow-card transition-shadow h-full"
+                whileHover={{ y: -8, scale: 1.02 }}
+                transition={{ duration: 0.3 }}
+              >
+                <div className="flex gap-1 mb-4">
+                  {[...Array(testimonial.rating)].map((_, i) => (
+                    <motion.div
+                      key={i}
+                      initial={{ opacity: 0, scale: 0 }}
+                      whileInView={{ opacity: 1, scale: 1 }}
+                      transition={{ delay: 0.1 * i, duration: 0.3 }}
+                      viewport={{ once: true }}
+                    >
+                      <Star className="w-4 h-4 fill-gold text-gold" />
+                    </motion.div>
+                  ))}
                 </div>
-                <div>
-                  <p className="font-medium text-foreground">{testimonial.name}</p>
-                  <p className="text-sm text-muted-foreground">{testimonial.role}</p>
+                <p className="text-foreground/80 mb-6 italic font-serif text-lg">
+                  "{testimonial.text}"
+                </p>
+                <div className="flex items-center gap-3">
+                  <motion.div 
+                    className="w-10 h-10 rounded-full bg-gradient-rose flex items-center justify-center"
+                    whileHover={{ scale: 1.2 }}
+                  >
+                    <span className="text-sm font-medium text-foreground">
+                      {testimonial.name.charAt(0)}
+                    </span>
+                  </motion.div>
+                  <div>
+                    <p className="font-medium text-foreground">{testimonial.name}</p>
+                    <p className="text-sm text-muted-foreground">{testimonial.role}</p>
+                  </div>
                 </div>
-              </div>
-            </div>
+              </motion.div>
+            </AnimatedSection>
           ))}
         </div>
       </div>
