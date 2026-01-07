@@ -19,11 +19,11 @@ const Index = () => {
       <TransformationSection />
       <ProductSection />
       <ForWhoSection />
-      <AboutSection />
       <SocialProofSection />
       <BonusSection />
       <OfferSection />
       <GuaranteeSection />
+      <AboutSection />
       <FinalCTASection />
       <Footer />
     </main>
