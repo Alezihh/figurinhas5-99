@@ -123,7 +123,7 @@ const OfferSection = () => {
                 </p>
               </div>
 
-              <Button variant="cta" size="lg" className="w-full rounded-full py-6 text-base">
+              <Button variant="cta" size="lg" className="w-full rounded-full py-6 text-base animate-pulse-border">
                 Baixar agora e elevar meu Instagram
               </Button>
             </div>
