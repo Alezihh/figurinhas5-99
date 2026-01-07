@@ -34,7 +34,7 @@ const OfferSection = () => {
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 items-center">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
           {/* Basic Plan */}
           <div className="bg-card rounded-3xl shadow-card border border-border overflow-hidden">
             <div className="bg-muted p-6 text-center">
@@ -77,7 +77,7 @@ const OfferSection = () => {
           </div>
 
           {/* Premium Plan */}
-          <div className="bg-card rounded-3xl shadow-elevated border-2 border-primary overflow-hidden relative animate-[pulse_3s_ease-in-out_infinite] md:scale-[1.02] shadow-[0_0_30px_rgba(var(--primary),0.3)]" style={{ boxShadow: '0 0 40px hsl(var(--primary) / 0.25), 0 0 80px hsl(var(--primary) / 0.15)' }}>
+          <div className="bg-card rounded-3xl shadow-elevated border-2 border-primary overflow-hidden relative">
             {/* Badge */}
             <div className="absolute -top-0 left-1/2 -translate-x-1/2 px-4 py-1 bg-primary text-primary-foreground text-xs font-medium rounded-b-lg">
               Mais Popular
