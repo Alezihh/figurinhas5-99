@@ -77,7 +77,7 @@ const OfferSection = () => {
           </div>
 
           {/* Premium Plan */}
-          <div className="bg-card rounded-3xl shadow-elevated border-2 border-primary overflow-hidden relative">
+          <div className="bg-card rounded-3xl shadow-elevated border-2 border-primary overflow-hidden relative animate-pulse-border">
             {/* Badge */}
             <div className="absolute -top-0 left-1/2 -translate-x-1/2 px-4 py-1 bg-primary text-primary-foreground text-xs font-medium rounded-b-lg">
               Mais Popular
