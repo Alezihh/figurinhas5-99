@@ -2,15 +2,12 @@ import { Button } from "@/components/ui/button";
 import { Check, Shield, Zap, Gift, Star, Crown } from "lucide-react";
 
 const basicItems = [
-  "+100 Figurinhas Estéticas",
-  "+50 Molduras Elegantes",
-  "+80 Ícones Minimalistas",
-  "+30 Divisores Femininos",
+  "+15.000 Figurinhas Estéticas",
   "Acesso vitalício",
 ];
 
 const premiumItems = [
-  "+200 Figurinhas Estéticas",
+  "+15.000 Figurinhas Estéticas",
   "+100 Molduras Elegantes",
   "+150 Ícones Minimalistas",
   "+60 Divisores Femininos",
@@ -65,8 +62,8 @@ const OfferSection = () => {
                   Por apenas
                 </p>
                 <div className="flex items-baseline justify-center gap-1">
-                  <span className="text-4xl md:text-5xl font-serif text-foreground">R$ 19</span>
-                  <span className="text-muted-foreground">,90</span>
+                  <span className="text-4xl md:text-5xl font-serif text-foreground">R$ 9</span>
+                  <span className="text-muted-foreground">,99</span>
                 </div>
                 <p className="text-xs text-muted-foreground mt-2">
                   Pagamento único
@@ -115,10 +112,10 @@ const OfferSection = () => {
 
               <div className="text-center mb-6">
                 <p className="text-muted-foreground text-sm mb-1">
-                  De <span className="line-through">R$ 97</span> por apenas
+                  De <span className="line-through">R$ 47</span> por apenas
                 </p>
                 <div className="flex items-baseline justify-center gap-1">
-                  <span className="text-4xl md:text-5xl font-serif text-foreground">R$ 39</span>
+                  <span className="text-4xl md:text-5xl font-serif text-foreground">R$ 19</span>
                   <span className="text-muted-foreground">,90</span>
                 </div>
                 <p className="text-xs text-muted-foreground mt-2">
