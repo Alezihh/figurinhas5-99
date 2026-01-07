@@ -1,4 +1,4 @@
-import stickersCollection from "@/assets/stickers-collection.png";
+import StickersCarousel from "./StickersCarousel";
 import { Check } from "lucide-react";
 
 const productItems = [
@@ -52,14 +52,9 @@ const ProductSection = () => {
           </p>
         </div>
 
-        {/* Product Preview */}
-        <div className="relative rounded-3xl overflow-hidden shadow-elevated mb-16">
-          <img
-            src={stickersCollection}
-            alt="Coleção de Stickers Aesthetic Stories"
-            className="w-full h-auto"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-background/20 to-transparent" />
+        {/* Stickers Carousel */}
+        <div className="mb-16">
+          <StickersCarousel />
         </div>
 
         {/* Product Items Grid */}

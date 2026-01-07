@@ -194,6 +194,14 @@
     animation: shimmer 3s ease-in-out infinite;
   }
 
+  .animate-scroll-up {
+    animation: scrollUp 12s linear infinite;
+  }
+
+  .animate-scroll-down {
+    animation: scrollDown 12s linear infinite;
+  }
+
   @keyframes float {
     0%, 100% {
       transform: translateY(0);
@@ -240,6 +248,24 @@
     }
     50% {
       opacity: 0.7;
+    }
+  }
+
+  @keyframes scrollUp {
+    0% {
+      transform: translateY(0);
+    }
+    100% {
+      transform: translateY(-50%);
+    }
+  }
+
+  @keyframes scrollDown {
+    0% {
+      transform: translateY(-50%);
+    }
+    100% {
+      transform: translateY(0);
     }
   }
 }
