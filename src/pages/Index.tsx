@@ -9,6 +9,7 @@ import OfferSection from "@/components/OfferSection";
 import GuaranteeSection from "@/components/GuaranteeSection";
 import FinalCTASection from "@/components/FinalCTASection";
 import Footer from "@/components/Footer";
+import AboutSection from "@/components/AboutSection";
 
 const Index = () => {
   return (
@@ -18,6 +19,7 @@ const Index = () => {
       <TransformationSection />
       <ProductSection />
       <ForWhoSection />
+      <AboutSection />
       <SocialProofSection />
       <BonusSection />
       <OfferSection />
