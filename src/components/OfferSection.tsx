@@ -36,7 +36,7 @@ const OfferSection = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 items-center">
           {/* Basic Plan */}
-          <div className="bg-card rounded-3xl shadow-card border border-border overflow-hidden md:scale-95">
+          <div className="bg-card rounded-3xl shadow-card border border-border overflow-hidden">
             <div className="bg-muted p-6 text-center">
               <div className="flex items-center justify-center gap-2 mb-2">
                 <Star className="w-5 h-5 text-foreground/70" />
@@ -77,7 +77,7 @@ const OfferSection = () => {
           </div>
 
           {/* Premium Plan */}
-          <div className="bg-card rounded-3xl shadow-elevated border-2 border-primary overflow-hidden relative animate-[pulse_3s_ease-in-out_infinite] md:scale-105">
+          <div className="bg-card rounded-3xl shadow-elevated border-2 border-primary overflow-hidden relative animate-[pulse_3s_ease-in-out_infinite] md:scale-[1.02]">
             {/* Badge */}
             <div className="absolute -top-0 left-1/2 -translate-x-1/2 px-4 py-1 bg-primary text-primary-foreground text-xs font-medium rounded-b-lg">
               Mais Popular
