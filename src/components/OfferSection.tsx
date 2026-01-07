@@ -123,8 +123,8 @@ const OfferSection = () => {
                 </p>
               </div>
 
-              <Button variant="cta" size="lg" className="w-full">
-                Quero o Pack Premium
+              <Button variant="cta" size="lg" className="w-full rounded-full py-6 text-base">
+                Baixar agora e elevar meu Instagram
               </Button>
             </div>
           </div>
