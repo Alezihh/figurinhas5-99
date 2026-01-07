@@ -34,21 +34,21 @@ const OfferSection = () => {
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 items-center">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
           {/* Basic Plan */}
-          <div className="bg-card rounded-3xl shadow-card border border-border overflow-hidden scale-95">
-            <div className="bg-muted p-5 text-center">
+          <div className="bg-card rounded-3xl shadow-card border border-border overflow-hidden">
+            <div className="bg-muted p-6 text-center">
               <div className="flex items-center justify-center gap-2 mb-2">
-                <Star className="w-4 h-4 text-foreground/70" />
-                <p className="text-xs text-foreground/70 font-medium">Essencial</p>
+                <Star className="w-5 h-5 text-foreground/70" />
+                <p className="text-sm text-foreground/70 font-medium">Essencial</p>
               </div>
-              <h3 className="text-lg md:text-xl font-serif text-foreground">
+              <h3 className="text-xl md:text-2xl font-serif text-foreground">
                 Pack Básico
               </h3>
             </div>
 
-            <div className="p-5 lg:p-6">
-              <div className="space-y-3 mb-6">
+            <div className="p-6 lg:p-8">
+              <div className="space-y-3 mb-8">
                 {basicItems.map((item, index) => (
                   <div key={index} className="flex items-center gap-3">
                     <Check className="w-4 h-4 text-primary flex-shrink-0" />
@@ -57,12 +57,12 @@ const OfferSection = () => {
                 ))}
               </div>
 
-              <div className="text-center mb-5">
+              <div className="text-center mb-6">
                 <p className="text-muted-foreground text-sm mb-1">
                   Por apenas
                 </p>
                 <div className="flex items-baseline justify-center gap-1">
-                  <span className="text-3xl md:text-4xl font-serif text-foreground">R$ 9</span>
+                  <span className="text-4xl md:text-5xl font-serif text-foreground">R$ 9</span>
                   <span className="text-muted-foreground">,99</span>
                 </div>
                 <p className="text-xs text-muted-foreground mt-2">
@@ -70,25 +70,25 @@ const OfferSection = () => {
                 </p>
               </div>
 
-              <Button variant="outline" size="default" className="w-full">
+              <Button variant="outline" size="lg" className="w-full">
                 Quero o Pack Básico
               </Button>
             </div>
           </div>
 
           {/* Premium Plan */}
-          <div className="bg-card rounded-3xl shadow-elevated border-2 border-primary overflow-hidden relative scale-105">
+          <div className="bg-card rounded-3xl shadow-elevated border-2 border-primary overflow-hidden relative">
             {/* Badge */}
-            <div className="absolute -top-0 left-1/2 -translate-x-1/2 px-4 py-1.5 bg-primary text-primary-foreground text-xs font-medium rounded-b-lg">
+            <div className="absolute -top-0 left-1/2 -translate-x-1/2 px-4 py-1 bg-primary text-primary-foreground text-xs font-medium rounded-b-lg">
               Mais Popular
             </div>
 
             <div className="bg-gradient-rose p-6 text-center">
               <div className="flex items-center justify-center gap-2 mb-2">
-                <Crown className="w-6 h-6 text-gold" />
+                <Crown className="w-5 h-5 text-gold" />
                 <p className="text-sm text-foreground/70 font-medium">Completo</p>
               </div>
-              <h3 className="text-2xl md:text-3xl font-serif text-foreground">
+              <h3 className="text-xl md:text-2xl font-serif text-foreground">
                 Pack Premium
               </h3>
             </div>
@@ -115,15 +115,15 @@ const OfferSection = () => {
                   De <span className="line-through">R$ 47</span> por apenas
                 </p>
                 <div className="flex items-baseline justify-center gap-1">
-                  <span className="text-5xl md:text-6xl font-serif text-foreground">R$ 19</span>
-                  <span className="text-muted-foreground text-lg">,90</span>
+                  <span className="text-4xl md:text-5xl font-serif text-foreground">R$ 19</span>
+                  <span className="text-muted-foreground">,90</span>
                 </div>
                 <p className="text-xs text-muted-foreground mt-2">
                   Pagamento único · Melhor custo-benefício
                 </p>
               </div>
 
-              <Button variant="cta" size="lg" className="w-full text-base">
+              <Button variant="cta" size="lg" className="w-full">
                 Quero o Pack Premium
               </Button>
             </div>
