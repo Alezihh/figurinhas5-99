@@ -156,7 +156,8 @@ const HeroSection = () => {
             <motion.img
               src={heroMockup}
               alt="Preview do Pack Aesthetic Stories"
-              className="relative w-full max-w-lg md:max-w-xl lg:max-w-2xl xl:max-w-3xl drop-shadow-2xl"
+              className="relative w-full max-w-xl md:max-w-2xl lg:max-w-3xl xl:max-w-4xl drop-shadow-2xl"
+              style={{ imageRendering: 'crisp-edges' }}
               whileHover={{ scale: 1.03 }}
               transition={{ duration: 0.4 }}
             />
