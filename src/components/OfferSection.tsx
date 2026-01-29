@@ -84,8 +84,8 @@ const OfferSection = () => {
                     animate={{ scale: [1, 1.05, 1] }}
                     transition={{ duration: 2, repeat: Infinity }}
                   >
-                    <span className="text-4xl md:text-5xl font-serif text-foreground">R$ 9</span>
-                    <span className="text-muted-foreground">,99</span>
+                    <span className="text-4xl md:text-5xl font-serif text-foreground">R$ 19</span>
+                    <span className="text-muted-foreground">,90</span>
                   </motion.div>
                   <p className="text-xs text-muted-foreground mt-2">
                     Pagamento único
@@ -167,14 +167,14 @@ const OfferSection = () => {
 
                 <div className="text-center mb-6">
                   <p className="text-muted-foreground text-sm mb-1">
-                    De <span className="line-through">R$ 47</span> por apenas
+                    De <span className="line-through">R$ 97,90</span> por apenas
                   </p>
                   <motion.div 
                     className="flex items-baseline justify-center gap-1"
                     animate={{ scale: [1, 1.08, 1] }}
                     transition={{ duration: 2, repeat: Infinity }}
                   >
-                    <span className="text-4xl md:text-5xl font-serif text-foreground">R$ 19</span>
+                    <span className="text-4xl md:text-5xl font-serif text-foreground">R$ 39</span>
                     <span className="text-muted-foreground">,90</span>
                   </motion.div>
                   <p className="text-xs text-muted-foreground mt-2">
