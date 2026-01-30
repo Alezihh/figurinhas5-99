@@ -84,7 +84,7 @@ const OfferSection = () => {
                     animate={{ scale: [1, 1.05, 1] }}
                     transition={{ duration: 2, repeat: Infinity }}
                   >
-                    <span className="text-4xl md:text-5xl font-serif text-foreground">R$ 19</span>
+                    <span className="text-4xl md:text-5xl font-serif text-foreground">R$ 9</span>
                     <span className="text-muted-foreground">,90</span>
                   </motion.div>
                   <p className="text-xs text-muted-foreground mt-2">
@@ -174,7 +174,7 @@ const OfferSection = () => {
                     animate={{ scale: [1, 1.08, 1] }}
                     transition={{ duration: 2, repeat: Infinity }}
                   >
-                    <span className="text-4xl md:text-5xl font-serif text-foreground">R$ 39</span>
+                    <span className="text-4xl md:text-5xl font-serif text-foreground">R$ 19</span>
                     <span className="text-muted-foreground">,90</span>
                   </motion.div>
                   <p className="text-xs text-muted-foreground mt-2">
