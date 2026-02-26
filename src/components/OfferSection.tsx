@@ -98,7 +98,7 @@ const OfferSection = () => {
                   className="w-full"
                   onClick={() => {
                     if (typeof (window as any).fbq === 'function') {
-                      (window as any).fbq('track', 'Purchase');
+                      (window as any).fbq('track', 'InitiateCheckout');
                     }
                     window.open('https://pay.kirvano.com/a0eb71a5-e20c-4c21-b1ba-b07478e3a578', '_blank');
                   }}
@@ -197,7 +197,7 @@ const OfferSection = () => {
                     className="w-full rounded-full py-6 text-base animate-pulse-border-slow"
                     onClick={() => {
                       if (typeof (window as any).fbq === 'function') {
-                        (window as any).fbq('track', 'Purchase');
+                        (window as any).fbq('track', 'InitiateCheckout');
                       }
                       window.open('https://pay.kirvano.com/d9d54fef-077a-42a1-9c35-312d5398fb3f', '_blank');
                     }}
