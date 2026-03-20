@@ -190,7 +190,7 @@ const OfferSection = () => {
                     variant="cta" 
                     size="lg" 
                     className="w-full rounded-full py-6 text-base animate-pulse-border-slow"
-                    onClick={() => window.open('https://pay.kirvano.com/d9d54fef-077a-42a1-9c35-312d5398fb3f', '_blank')}
+                    onClick={() => window.open('https://pay.kirvano.com/6d597f2b-b9c5-42e4-89a3-6d84cefd3f12', '_blank')}
                   >
                     Baixar agora e elevar meu Instagram
                   </Button>
