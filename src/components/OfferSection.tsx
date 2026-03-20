@@ -96,7 +96,7 @@ const OfferSection = () => {
                   variant="outline" 
                   size="lg" 
                   className="w-full"
-                  onClick={() => window.open('https://pay.kirvano.com/a0eb71a5-e20c-4c21-b1ba-b07478e3a578', '_blank')}
+                  onClick={() => window.open('https://pay.kirvano.com/0c64f1e6-77f4-49e1-b824-4b80f90c2101', '_blank')}
                 >
                   Quero o Pack Básico
                 </Button>
@@ -190,7 +190,7 @@ const OfferSection = () => {
                     variant="cta" 
                     size="lg" 
                     className="w-full rounded-full py-6 text-base animate-pulse-border-slow"
-                    onClick={() => window.open('https://pay.kirvano.com/d9d54fef-077a-42a1-9c35-312d5398fb3f', '_blank')}
+                    onClick={() => window.open('https://pay.kirvano.com/6d597f2b-b9c5-42e4-89a3-6d84cefd3f12', '_blank')}
                   >
                     Baixar agora e elevar meu Instagram
                   </Button>
