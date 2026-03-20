@@ -96,7 +96,7 @@ const OfferSection = () => {
                   variant="outline" 
                   size="lg" 
                   className="w-full"
-                  onClick={() => window.open('https://pay.kirvano.com/a0eb71a5-e20c-4c21-b1ba-b07478e3a578', '_blank')}
+                  onClick={() => window.open('https://pay.kirvano.com/0c64f1e6-77f4-49e1-b824-4b80f90c2101', '_blank')}
                 >
                   Quero o Pack Básico
                 </Button>
