@@ -4,6 +4,8 @@ import beforeLingerie from "@/assets/before-lingerie.jpg";
 import afterLingerie from "@/assets/after-lingerie.jpg";
 import beforePizza from "@/assets/before-pizza.jpg";
 import afterPizza from "@/assets/after-pizza.jpg";
+import beforeGym from "@/assets/before-gym.png";
+import afterGym from "@/assets/after-gym.jpg";
 import { motion } from "framer-motion";
 import AnimatedSection from "./AnimatedSection";
 
