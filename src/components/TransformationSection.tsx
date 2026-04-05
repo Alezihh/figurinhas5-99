@@ -1,7 +1,17 @@
 import beforeImage from "@/assets/before-image.png";
 import afterImage from "@/assets/after-image.png";
+import beforeLingerie from "@/assets/before-lingerie.jpg";
+import afterLingerie from "@/assets/after-lingerie.jpg";
+import beforePizza from "@/assets/before-pizza.jpg";
+import afterPizza from "@/assets/after-pizza.jpg";
 import { motion } from "framer-motion";
 import AnimatedSection from "./AnimatedSection";
+
+const transformations = [
+  { before: beforeImage, after: afterImage, beforeAlt: "Story sem elementos", afterAlt: "Story com stickers elegantes" },
+  { before: beforeLingerie, after: afterLingerie, beforeAlt: "Story de lingerie sem elementos", afterAlt: "Story de lingerie com stickers" },
+  { before: beforePizza, after: afterPizza, beforeAlt: "Story de pizza sem elementos", afterAlt: "Story de pizza com stickers" },
+];
 
 const TransformationSection = () => {
   return (
@@ -28,52 +38,56 @@ const TransformationSection = () => {
           </AnimatedSection>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
-          {/* Before */}
-          <AnimatedSection direction="left" delay={0.2}>
-            <motion.div 
-              className="relative rounded-3xl overflow-hidden shadow-elevated bg-muted"
-              whileHover={{ scale: 1.03 }}
-              transition={{ duration: 0.4 }}
-            >
-              <motion.div 
-                className="absolute top-4 left-4 z-10 px-4 py-2 bg-foreground/80 text-background rounded-full text-sm font-medium"
-                initial={{ x: -50, opacity: 0 }}
-                whileInView={{ x: 0, opacity: 1 }}
-                transition={{ delay: 0.5, duration: 0.4 }}
-              >
-                BEFORE STORIES
-              </motion.div>
-              <img
-                src={beforeImage}
-                alt="Antes - Story sem elementos"
-                className="w-full h-auto aspect-[9/16] object-cover"
-              />
-            </motion.div>
-          </AnimatedSection>
+        <div className="space-y-12">
+          {transformations.map((item, idx) => (
+            <div key={idx} className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+              {/* Before */}
+              <AnimatedSection direction="left" delay={0.2}>
+                <motion.div 
+                  className="relative rounded-3xl overflow-hidden shadow-elevated bg-muted"
+                  whileHover={{ scale: 1.03 }}
+                  transition={{ duration: 0.4 }}
+                >
+                  <motion.div 
+                    className="absolute top-4 left-4 z-10 px-4 py-2 bg-foreground/80 text-background rounded-full text-sm font-medium"
+                    initial={{ x: -50, opacity: 0 }}
+                    whileInView={{ x: 0, opacity: 1 }}
+                    transition={{ delay: 0.5, duration: 0.4 }}
+                  >
+                    BEFORE
+                  </motion.div>
+                  <img
+                    src={item.before}
+                    alt={item.beforeAlt}
+                    className="w-full h-auto aspect-[9/16] object-cover"
+                  />
+                </motion.div>
+              </AnimatedSection>
 
-          {/* After */}
-          <AnimatedSection direction="right" delay={0.3}>
-            <motion.div 
-              className="relative rounded-3xl overflow-hidden shadow-elevated bg-muted"
-              whileHover={{ scale: 1.03 }}
-              transition={{ duration: 0.4 }}
-            >
-              <motion.div 
-                className="absolute top-4 right-4 z-10 px-4 py-2 bg-primary text-primary-foreground rounded-full text-sm font-medium"
-                initial={{ x: 50, opacity: 0 }}
-                whileInView={{ x: 0, opacity: 1 }}
-                transition={{ delay: 0.6, duration: 0.4 }}
-              >
-                AFTER
-              </motion.div>
-              <img
-                src={afterImage}
-                alt="Depois - Story com stickers elegantes"
-                className="w-full h-auto aspect-[9/16] object-cover"
-              />
-            </motion.div>
-          </AnimatedSection>
+              {/* After */}
+              <AnimatedSection direction="right" delay={0.3}>
+                <motion.div 
+                  className="relative rounded-3xl overflow-hidden shadow-elevated bg-muted"
+                  whileHover={{ scale: 1.03 }}
+                  transition={{ duration: 0.4 }}
+                >
+                  <motion.div 
+                    className="absolute top-4 right-4 z-10 px-4 py-2 bg-primary text-primary-foreground rounded-full text-sm font-medium"
+                    initial={{ x: 50, opacity: 0 }}
+                    whileInView={{ x: 0, opacity: 1 }}
+                    transition={{ delay: 0.6, duration: 0.4 }}
+                  >
+                    AFTER
+                  </motion.div>
+                  <img
+                    src={item.after}
+                    alt={item.afterAlt}
+                    className="w-full h-auto aspect-[9/16] object-cover"
+                  />
+                </motion.div>
+              </AnimatedSection>
+            </div>
+          ))}
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
