@@ -176,17 +176,6 @@ const HeroSection = () => {
         </motion.div>
       </div>
 
-      {/* Social proof bar */}
-      <motion.div
-        className="mt-8 w-full py-3 bg-foreground/90 backdrop-blur-sm"
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 1.1, duration: 0.5 }}
-      >
-        <p className="text-center text-sm text-background/90">
-          +47 mil pessoas já fazem stories que chamam atenção. <span className="font-bold text-background">Falta você.</span>
-        </p>
-      </motion.div>
 
       {/* Scroll indicator */}
       <motion.div 
