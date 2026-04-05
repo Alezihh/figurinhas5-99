@@ -6,6 +6,8 @@ import beforeGym from "@/assets/before-gym.png";
 import afterGym from "@/assets/after-gym.jpg";
 import beforeNetflix from "@/assets/before-netflix.png";
 import afterNetflix from "@/assets/after-netflix.jpg";
+import beforeFitness from "@/assets/before-fitness.png";
+import afterFitness from "@/assets/after-fitness.jpg";
 import { motion } from "framer-motion";
 import AnimatedSection from "./AnimatedSection";
 
@@ -14,6 +16,7 @@ const transformations = [
   { before: beforeLingerie, after: afterLingerie, beforeAlt: "Story de lingerie sem elementos", afterAlt: "Story de lingerie com stickers" },
   { before: beforeGym, after: afterGym, beforeAlt: "Story de academia sem elementos", afterAlt: "Story de academia com stickers" },
   { before: beforeNetflix, after: afterNetflix, beforeAlt: "Story de Netflix sem elementos", afterAlt: "Story de Netflix com stickers" },
+  { before: beforeFitness, after: afterFitness, beforeAlt: "Story fitness sem elementos", afterAlt: "Story fitness com stickers" },
 ];
 
 const TransformationSection = () => {
