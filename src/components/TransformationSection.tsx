@@ -1,7 +1,17 @@
 import beforeImage from "@/assets/before-image.png";
 import afterImage from "@/assets/after-image.png";
+import beforeLingerie from "@/assets/before-lingerie.jpg";
+import afterLingerie from "@/assets/after-lingerie.jpg";
+import beforePizza from "@/assets/before-pizza.jpg";
+import afterPizza from "@/assets/after-pizza.jpg";
 import { motion } from "framer-motion";
 import AnimatedSection from "./AnimatedSection";
+
+const transformations = [
+  { before: beforeImage, after: afterImage, beforeAlt: "Story sem elementos", afterAlt: "Story com stickers elegantes" },
+  { before: beforeLingerie, after: afterLingerie, beforeAlt: "Story de lingerie sem elementos", afterAlt: "Story de lingerie com stickers" },
+  { before: beforePizza, after: afterPizza, beforeAlt: "Story de pizza sem elementos", afterAlt: "Story de pizza com stickers" },
+];
 
 const TransformationSection = () => {
   return (
