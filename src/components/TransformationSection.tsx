@@ -13,6 +13,7 @@ const transformations = [
   { before: beforeImage, after: afterImage, beforeAlt: "Story sem elementos", afterAlt: "Story com stickers elegantes" },
   { before: beforeLingerie, after: afterLingerie, beforeAlt: "Story de lingerie sem elementos", afterAlt: "Story de lingerie com stickers" },
   { before: beforePizza, after: afterPizza, beforeAlt: "Story de pizza sem elementos", afterAlt: "Story de pizza com stickers" },
+  { before: beforeGym, after: afterGym, beforeAlt: "Story de academia sem elementos", afterAlt: "Story de academia com stickers" },
 ];
 
 const TransformationSection = () => {
