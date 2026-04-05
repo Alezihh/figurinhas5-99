@@ -6,6 +6,8 @@ import beforeGym from "@/assets/before-gym.png";
 import afterGym from "@/assets/after-gym.jpg";
 import beforeNetflix from "@/assets/before-netflix.png";
 import afterNetflix from "@/assets/after-netflix.jpg";
+import beforeFitness from "@/assets/before-fitness.png";
+import afterFitness from "@/assets/after-fitness.jpg";
 import { motion } from "framer-motion";
 import AnimatedSection from "./AnimatedSection";
 
