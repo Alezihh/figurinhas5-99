@@ -1,4 +1,4 @@
-import isabelaPhoto from "@/assets/isabela-photo.png";
+import isabelaPhoto from "@/assets/isabela-photo.jpg";
 import { motion } from "framer-motion";
 import AnimatedSection from "./AnimatedSection";
 
