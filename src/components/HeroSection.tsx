@@ -68,7 +68,7 @@ const HeroSection = () => {
             >
               <Sparkles className="w-4 h-4 text-primary" />
             </motion.div>
-            <span className="text-sm font-medium text-foreground/80">Pack Premium de Stickers</span>
+            <span className="text-sm font-medium text-foreground/80">Seu App de Figurinhas</span>
           </motion.div>
 
           <motion.h1 
