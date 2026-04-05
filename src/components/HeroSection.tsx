@@ -78,7 +78,7 @@ const HeroSection = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5, duration: 0.6 }}
           >
-            Figurinhas, molduras e elementos estéticos prontos para elevar seu Instagram ao nível de sofisticação que você merece.
+            O app com mais de 15.000 figurinhas criativas pra você criar stories bonitos em 60 segundos, sem saber nada de design.
           </motion.p>
 
           <motion.div 
