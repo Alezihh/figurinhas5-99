@@ -1,5 +1,5 @@
-import beforeImage from "@/assets/before-image.png";
-import afterImage from "@/assets/after-image.png";
+import beforeFruit from "@/assets/before-fruit.png";
+import afterFruit from "@/assets/after-fruit.jpg";
 import beforeLingerie from "@/assets/before-lingerie.jpg";
 import afterLingerie from "@/assets/after-lingerie.jpg";
 import beforeGym from "@/assets/before-gym.png";
@@ -8,7 +8,7 @@ import { motion } from "framer-motion";
 import AnimatedSection from "./AnimatedSection";
 
 const transformations = [
-  { before: beforeImage, after: afterImage, beforeAlt: "Story sem elementos", afterAlt: "Story com stickers elegantes" },
+  { before: beforeFruit, after: afterFruit, beforeAlt: "Story de frutas sem elementos", afterAlt: "Story de frutas com stickers" },
   { before: beforeLingerie, after: afterLingerie, beforeAlt: "Story de lingerie sem elementos", afterAlt: "Story de lingerie com stickers" },
   { before: beforeGym, after: afterGym, beforeAlt: "Story de academia sem elementos", afterAlt: "Story de academia com stickers" },
 ];
