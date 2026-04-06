@@ -281,7 +281,7 @@ const BonusSection = () => {
         {/* Video Demo */}
         <AnimatedSection delay={0.6}>
           <div className="mt-12 flex justify-center">
-            <VideoWithSound />
+            <YouTubeWithSound />
           </div>
         </AnimatedSection>
       </div>
