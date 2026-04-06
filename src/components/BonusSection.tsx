@@ -68,8 +68,33 @@ const YouTubeWithSound = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const playerRef = useRef<any>(null);
   const [isVisible, setIsVisible] = useState(false);
-  const [isMuted, setIsMuted] = useState(true);
   const [apiReady, setApiReady] = useState(false);
+  const userInteractedRef = useRef(false);
+  const hasUnmutedRef = useRef(false);
+
+  // Track any user interaction on the page
+  useEffect(() => {
+    const markInteracted = () => {
+      userInteractedRef.current = true;
+      // Try to unmute if player is visible and playing
+      const player = playerRef.current;
+      if (player && player.unMute && !hasUnmutedRef.current && isVisible) {
+        player.unMute();
+        player.setVolume(100);
+        hasUnmutedRef.current = true;
+      }
+    };
+    window.addEventListener("click", markInteracted, { once: true });
+    window.addEventListener("touchstart", markInteracted, { once: true });
+    window.addEventListener("scroll", markInteracted, { once: true });
+    window.addEventListener("keydown", markInteracted, { once: true });
+    return () => {
+      window.removeEventListener("click", markInteracted);
+      window.removeEventListener("touchstart", markInteracted);
+      window.removeEventListener("scroll", markInteracted);
+      window.removeEventListener("keydown", markInteracted);
+    };
+  }, [isVisible]);
 
   // Load YouTube IFrame API
   useEffect(() => {
@@ -102,6 +127,13 @@ const YouTubeWithSound = () => {
         onReady: () => {
           if (isVisible) {
             playerRef.current.playVideo();
+            if (userInteractedRef.current && !hasUnmutedRef.current) {
+              setTimeout(() => {
+                playerRef.current.unMute();
+                playerRef.current.setVolume(100);
+                hasUnmutedRef.current = true;
+              }, 300);
+            }
           }
         },
       },
@@ -120,42 +152,29 @@ const YouTubeWithSound = () => {
     return () => observer.disconnect();
   }, []);
 
-  // Play/pause based on visibility
+  // Play/pause and unmute based on visibility
   useEffect(() => {
     const player = playerRef.current;
     if (!player || !player.playVideo) return;
     if (isVisible) {
       player.playVideo();
+      if (userInteractedRef.current && !hasUnmutedRef.current) {
+        setTimeout(() => {
+          player.unMute();
+          player.setVolume(100);
+          hasUnmutedRef.current = true;
+        }, 300);
+      }
     } else {
       player.pauseVideo();
+      // Reset so it unmutes again next time it's visible
+      hasUnmutedRef.current = false;
     }
   }, [isVisible]);
-
-  const handleUnmute = () => {
-    const player = playerRef.current;
-    if (player && player.unMute) {
-      player.unMute();
-      player.setVolume(100);
-      setIsMuted(false);
-    }
-  };
 
   return (
     <div ref={containerRef} className="relative w-full max-w-sm mx-auto aspect-[9/16] rounded-2xl shadow-card border border-border/50 overflow-hidden">
       <div id="yt-player" className="w-full h-full" />
-      {isMuted && (
-        <button
-          onClick={handleUnmute}
-          className="absolute bottom-4 right-4 z-10 bg-primary text-primary-foreground rounded-full p-3 shadow-lg hover:scale-110 transition-transform"
-          aria-label="Ativar som"
-        >
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-            <path d="M11 5 6 9H2v6h4l5 4V5Z"/>
-            <line x1="23" y1="9" x2="17" y2="15"/>
-            <line x1="17" y1="9" x2="23" y2="15"/>
-          </svg>
-        </button>
-      )}
     </div>
   );
 };
