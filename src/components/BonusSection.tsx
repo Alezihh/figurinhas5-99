@@ -1,6 +1,6 @@
 import { Check, Sparkles, Video, Image, Box } from "lucide-react";
 import { motion } from "framer-motion";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import AnimatedSection from "./AnimatedSection";
 
 const bonusCards = [
@@ -64,39 +64,41 @@ const universaisItems = [
   "E muito mais...",
 ];
 
-const VideoWithSound = () => {
-  const videoRef = useRef<HTMLVideoElement>(null);
+const YouTubeWithSound = () => {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [shouldPlay, setShouldPlay] = useState(false);
 
   useEffect(() => {
-    const video = videoRef.current;
-    if (!video) return;
+    const container = containerRef.current;
+    if (!container) return;
 
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
-          video.muted = false;
-          video.play();
-        } else {
-          video.muted = true;
-          video.pause();
-        }
+        setShouldPlay(entry.isIntersecting);
       },
       { threshold: 0.5 }
     );
 
-    observer.observe(video);
+    observer.observe(container);
     return () => observer.disconnect();
   }, []);
 
   return (
-    <video
-      ref={videoRef}
-      className="w-full max-w-2xl rounded-2xl shadow-card border border-border/50"
-      src="/videos/stickers-demo.mov"
-      loop
-      muted
-      playsInline
-    />
+    <div ref={containerRef} className="w-full max-w-sm mx-auto aspect-[9/16] rounded-2xl shadow-card border border-border/50 overflow-hidden">
+      {shouldPlay ? (
+        <iframe
+          className="w-full h-full"
+          src="https://www.youtube.com/embed/LVljMU-MBnQ?autoplay=1&loop=1&playlist=LVljMU-MBnQ&controls=0&modestbranding=1&rel=0"
+          allow="autoplay; encrypted-media"
+          allowFullScreen
+          title="Stickers Demo"
+        />
+      ) : (
+        <div className="w-full h-full bg-muted flex items-center justify-center">
+          <span className="text-muted-foreground text-sm">▶ Role para assistir</span>
+        </div>
+      )}
+    </div>
   );
 };
 
@@ -279,7 +281,7 @@ const BonusSection = () => {
         {/* Video Demo */}
         <AnimatedSection delay={0.6}>
           <div className="mt-12 flex justify-center">
-            <VideoWithSound />
+            <YouTubeWithSound />
           </div>
         </AnimatedSection>
       </div>
