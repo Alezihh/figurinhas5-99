@@ -1,5 +1,6 @@
 import { Check, Sparkles, Video, Image, Box } from "lucide-react";
 import { motion } from "framer-motion";
+import { useEffect, useRef } from "react";
 import AnimatedSection from "./AnimatedSection";
 
 const bonusCards = [
@@ -62,6 +63,42 @@ const universaisItems = [
   "Dona de Casa",
   "E muito mais...",
 ];
+
+const VideoWithSound = () => {
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          video.muted = false;
+          video.play();
+        } else {
+          video.muted = true;
+          video.pause();
+        }
+      },
+      { threshold: 0.5 }
+    );
+
+    observer.observe(video);
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <video
+      ref={videoRef}
+      className="w-full max-w-2xl rounded-2xl shadow-card border border-border/50"
+      src="/videos/stickers-demo.mov"
+      loop
+      muted
+      playsInline
+    />
+  );
+};
 
 const BonusSection = () => {
   return (
@@ -242,14 +279,7 @@ const BonusSection = () => {
         {/* Video Demo */}
         <AnimatedSection delay={0.6}>
           <div className="mt-12 flex justify-center">
-            <video
-              className="w-full max-w-2xl rounded-2xl shadow-card border border-border/50"
-              src="/videos/stickers-demo.mov"
-              autoPlay
-              loop
-              muted
-              playsInline
-            />
+            <VideoWithSound />
           </div>
         </AnimatedSection>
       </div>
