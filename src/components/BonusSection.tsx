@@ -64,6 +64,42 @@ const universaisItems = [
   "E muito mais...",
 ];
 
+const VideoWithSound = () => {
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          video.muted = false;
+          video.play();
+        } else {
+          video.muted = true;
+          video.pause();
+        }
+      },
+      { threshold: 0.5 }
+    );
+
+    observer.observe(video);
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <video
+      ref={videoRef}
+      className="w-full max-w-2xl rounded-2xl shadow-card border border-border/50"
+      src="/videos/stickers-demo.mov"
+      loop
+      muted
+      playsInline
+    />
+  );
+};
+
 const BonusSection = () => {
   return (
     <section className="section-padding bg-secondary/50 relative overflow-hidden">
