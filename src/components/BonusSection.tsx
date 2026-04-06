@@ -1,5 +1,6 @@
 import { Check, Sparkles, Video, Image, Box } from "lucide-react";
 import { motion } from "framer-motion";
+import { useEffect, useRef } from "react";
 import AnimatedSection from "./AnimatedSection";
 
 const bonusCards = [
