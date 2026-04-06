@@ -115,7 +115,7 @@ const HeroSection = () => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.98 }}
             >
-              <Button variant="cta-outline" size="xl" onClick={scrollToOffer}>
+              <Button variant="cta-outline" size="xl" onClick={scrollToVideo}>
                 Ver o que está incluso
               </Button>
             </motion.div>
