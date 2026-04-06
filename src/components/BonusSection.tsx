@@ -66,37 +66,95 @@ const universaisItems = [
 
 const YouTubeWithSound = () => {
   const containerRef = useRef<HTMLDivElement>(null);
-  const [shouldPlay, setShouldPlay] = useState(false);
+  const playerRef = useRef<any>(null);
+  const [isVisible, setIsVisible] = useState(false);
+  const [isMuted, setIsMuted] = useState(true);
+  const [apiReady, setApiReady] = useState(false);
 
+  // Load YouTube IFrame API
+  useEffect(() => {
+    if ((window as any).YT && (window as any).YT.Player) {
+      setApiReady(true);
+      return;
+    }
+    const tag = document.createElement("script");
+    tag.src = "https://www.youtube.com/iframe_api";
+    document.head.appendChild(tag);
+    (window as any).onYouTubeIframeAPIReady = () => setApiReady(true);
+  }, []);
+
+  // Create player when API is ready
+  useEffect(() => {
+    if (!apiReady) return;
+    playerRef.current = new (window as any).YT.Player("yt-player", {
+      videoId: "LVljMU-MBnQ",
+      playerVars: {
+        autoplay: 0,
+        loop: 1,
+        playlist: "LVljMU-MBnQ",
+        controls: 0,
+        modestbranding: 1,
+        rel: 0,
+        playsinline: 1,
+        mute: 1,
+      },
+      events: {
+        onReady: () => {
+          if (isVisible) {
+            playerRef.current.playVideo();
+          }
+        },
+      },
+    });
+  }, [apiReady]);
+
+  // Observe visibility
   useEffect(() => {
     const container = containerRef.current;
     if (!container) return;
-
     const observer = new IntersectionObserver(
-      ([entry]) => {
-        setShouldPlay(entry.isIntersecting);
-      },
+      ([entry]) => setIsVisible(entry.isIntersecting),
       { threshold: 0.5 }
     );
-
     observer.observe(container);
     return () => observer.disconnect();
   }, []);
 
+  // Play/pause based on visibility
+  useEffect(() => {
+    const player = playerRef.current;
+    if (!player || !player.playVideo) return;
+    if (isVisible) {
+      player.playVideo();
+    } else {
+      player.pauseVideo();
+    }
+  }, [isVisible]);
+
+  const handleUnmute = () => {
+    const player = playerRef.current;
+    if (player && player.unMute) {
+      player.unMute();
+      player.setVolume(100);
+      setIsMuted(false);
+    }
+  };
+
   return (
-    <div ref={containerRef} className="w-full max-w-sm mx-auto aspect-[9/16] rounded-2xl shadow-card border border-border/50 overflow-hidden">
-      {shouldPlay ? (
-        <iframe
-          className="w-full h-full"
-          src="https://www.youtube.com/embed/LVljMU-MBnQ?autoplay=1&loop=1&playlist=LVljMU-MBnQ&controls=0&modestbranding=1&rel=0"
-          allow="autoplay; encrypted-media"
-          allowFullScreen
-          title="Stickers Demo"
-        />
-      ) : (
-        <div className="w-full h-full bg-muted flex items-center justify-center">
-          <span className="text-muted-foreground text-sm">▶ Role para assistir</span>
-        </div>
+    <div ref={containerRef} className="relative w-full max-w-sm mx-auto aspect-[9/16] rounded-2xl shadow-card border border-border/50 overflow-hidden">
+      <div id="yt-player" className="w-full h-full" />
+      {isMuted && (
+        <button
+          onClick={handleUnmute}
+          className="absolute bottom-4 right-4 z-10 bg-primary text-primary-foreground rounded-full p-3 shadow-lg hover:scale-110 transition-transform"
+          aria-label="Ativar som"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M11 5 6 9H2v6h4l5 4V5Z"/>
+            <line x1="23" y1="9" x2="17" y2="15"/>
+            <line x1="17" y1="9" x2="23" y2="15"/>
+          </svg>
+        </button>
       )}
     </div>
   );
