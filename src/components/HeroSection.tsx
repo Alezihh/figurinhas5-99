@@ -9,6 +9,11 @@ const HeroSection = () => {
     element?.scrollIntoView({ behavior: "smooth" });
   };
 
+  const scrollToVideo = () => {
+    const element = document.getElementById("video-demo");
+    element?.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
     <section className="relative bg-gradient-hero overflow-hidden pb-8 pt-0">
       {/* Social proof bar */}

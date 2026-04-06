@@ -173,7 +173,7 @@ const YouTubeWithSound = () => {
   }, [isVisible]);
 
   return (
-    <div ref={containerRef} className="relative w-full max-w-sm mx-auto aspect-[9/16] rounded-2xl shadow-card border border-border/50 overflow-hidden">
+    <div id="video-demo" ref={containerRef} className="relative w-full max-w-sm mx-auto aspect-[9/16] rounded-2xl shadow-card border border-border/50 overflow-hidden">
       <div id="yt-player" className="w-full h-full" />
     </div>
   );
