@@ -243,14 +243,7 @@ const BonusSection = () => {
         {/* Video Demo */}
         <AnimatedSection delay={0.6}>
           <div className="mt-12 flex justify-center">
-            <video
-              className="w-full max-w-2xl rounded-2xl shadow-card border border-border/50"
-              src="/videos/stickers-demo.mov"
-              autoPlay
-              loop
-              muted
-              playsInline
-            />
+            <VideoWithSound />
           </div>
         </AnimatedSection>
       </div>
