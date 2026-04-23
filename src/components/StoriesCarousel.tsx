@@ -15,10 +15,19 @@ import storyG from "@/assets/stories/story-7.jpg";
 import storyH from "@/assets/stories/story-8.jpg";
 import storyI from "@/assets/stories/story-9.jpg";
 import storyJ from "@/assets/stories/story-10.jpg";
+import storyK from "@/assets/stories/story-11.jpg";
+import storyL from "@/assets/stories/story-12.jpg";
+import storyM from "@/assets/stories/story-13.jpg";
+import storyN from "@/assets/stories/story-14.jpg";
+import storyO from "@/assets/stories/story-15.jpg";
+import storyP from "@/assets/stories/story-16.jpg";
+import storyQ from "@/assets/stories/story-17.jpg";
+import storyR from "@/assets/stories/story-18.jpg";
 
 const stories = [
-  storyA, story1, storyB, story2, storyC, story3, storyD, story4,
-  storyE, story5, storyF, story6, storyG, story7, storyH, storyI, storyJ,
+  storyA, story1, storyK, storyB, story2, storyL, storyC, story3, storyM,
+  storyD, story4, storyN, storyE, story5, storyO, storyF, story6, storyP,
+  storyG, story7, storyQ, storyH, storyI, storyR, storyJ,
 ];
 
 const StoriesCarousel = () => {
@@ -37,7 +46,7 @@ const StoriesCarousel = () => {
       </div>
 
       <div className="w-full overflow-hidden py-6">
-        <div className="flex gap-4 md:gap-6 animate-scroll-left w-max">
+        <div className="flex gap-4 md:gap-6 animate-scroll-left w-max" style={{ animationDuration: "60s" }}>
           {[...stories, ...stories, ...stories].map((src, index) => (
             <div
               key={`story-${index}`}
