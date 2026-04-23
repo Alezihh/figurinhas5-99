@@ -88,7 +88,7 @@ const OfferSection = () => {
                     <span className="text-muted-foreground">,90</span>
                   </motion.div>
                   <p className="text-xs text-muted-foreground mt-2">
-                    Mensal
+                    Pagamento único
                   </p>
                 </div>
 
@@ -96,7 +96,7 @@ const OfferSection = () => {
                   variant="outline" 
                   size="lg" 
                   className="w-full"
-                  onClick={() => window.open('https://checkout.ticto.app/O5515C365', '_blank')}
+                  onClick={() => window.open('https://pay.kirvano.com/0c64f1e6-77f4-49e1-b824-4b80f90c2101', '_blank')}
                 >
                   Quero o Pack Básico
                 </Button>
@@ -178,7 +178,7 @@ const OfferSection = () => {
                     <span className="text-muted-foreground">,90</span>
                   </motion.div>
                   <p className="text-xs text-muted-foreground mt-2">
-                    Mensal · Melhor custo-benefício
+                    Pagamento único · Melhor custo-benefício
                   </p>
                 </div>
 
@@ -190,7 +190,7 @@ const OfferSection = () => {
                     variant="cta" 
                     size="lg" 
                     className="w-full rounded-full py-6 text-base animate-pulse-border-slow"
-                    onClick={() => window.open('https://checkout.ticto.app/OB20B47EE', '_blank')}
+                    onClick={() => window.open('https://pay.kirvano.com/6d597f2b-b9c5-42e4-89a3-6d84cefd3f12', '_blank')}
                   >
                     Baixar agora e elevar meu Instagram
                   </Button>
