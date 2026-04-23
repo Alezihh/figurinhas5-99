@@ -6,6 +6,7 @@ import ForWhoSection from "@/components/ForWhoSection";
 import SocialProofSection from "@/components/SocialProofSection";
 import BonusSection from "@/components/BonusSection";
 import OfferSection from "@/components/OfferSection";
+import StoriesCarousel from "@/components/StoriesCarousel";
 import GuaranteeSection from "@/components/GuaranteeSection";
 import FinalCTASection from "@/components/FinalCTASection";
 import Footer from "@/components/Footer";
@@ -21,6 +22,7 @@ const Index = () => {
       <ForWhoSection />
       <SocialProofSection />
       <BonusSection />
+      <StoriesCarousel />
       <OfferSection />
       <GuaranteeSection />
       <AboutSection />
