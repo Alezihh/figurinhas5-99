@@ -5,8 +5,21 @@ import story4 from "@/assets/after-lingerie.jpg";
 import story5 from "@/assets/after-netflix.jpg";
 import story6 from "@/assets/after-pizza.jpg";
 import story7 from "@/assets/after-image.png";
+import storyA from "@/assets/stories/story-1.jpg";
+import storyB from "@/assets/stories/story-2.jpg";
+import storyC from "@/assets/stories/story-3.jpg";
+import storyD from "@/assets/stories/story-4.jpg";
+import storyE from "@/assets/stories/story-5.jpg";
+import storyF from "@/assets/stories/story-6.jpg";
+import storyG from "@/assets/stories/story-7.jpg";
+import storyH from "@/assets/stories/story-8.jpg";
+import storyI from "@/assets/stories/story-9.jpg";
+import storyJ from "@/assets/stories/story-10.jpg";
 
-const stories = [story1, story2, story3, story4, story5, story6, story7];
+const stories = [
+  storyA, story1, storyB, story2, storyC, story3, storyD, story4,
+  storyE, story5, storyF, story6, storyG, story7, storyH, storyI, storyJ,
+];
 
 const StoriesCarousel = () => {
   return (
