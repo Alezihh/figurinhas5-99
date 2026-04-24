@@ -113,7 +113,7 @@ const OfferSection = () => {
             >
               {/* Badge */}
               <motion.div 
-                className="absolute -top-0 left-1/2 -translate-x-1/2 px-4 py-1 bg-primary text-primary-foreground text-xs font-medium rounded-b-lg"
+                className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 px-4 py-1 bg-primary text-primary-foreground text-xs font-medium rounded-full shadow-md z-10"
                 animate={{ y: [0, -3, 0] }}
                 transition={{ duration: 1.5, repeat: Infinity }}
               >
