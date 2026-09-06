@@ -2,10 +2,10 @@ import { Star } from "lucide-react";
 import { motion } from "framer-motion";
 import AnimatedSection from "./AnimatedSection";
 import { Button } from "@/components/ui/button";
-import { trackCtaClick } from "@/lib/tracking";
+import { trackNavCtaClick } from "@/lib/tracking";
 
 const scrollToOffer = () => {
-  trackCtaClick({ cta_id: "social_proof_cta", cta_position: "social_proof", price: 9.9 });
+  trackNavCtaClick({ cta_id: "social_proof", cta_position: "social_proof" });
   document.getElementById("oferta")?.scrollIntoView({ behavior: "smooth" });
 };
 

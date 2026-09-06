@@ -13,7 +13,7 @@ import afterPizza from "@/assets/after-pizza.jpg";
 import { motion } from "framer-motion";
 import AnimatedSection from "./AnimatedSection";
 import { Button } from "@/components/ui/button";
-import { trackCtaClick } from "@/lib/tracking";
+import { trackNavCtaClick } from "@/lib/tracking";
 
 const firstBatch = [
   { before: beforeFruit, after: afterFruit, beforeAlt: "Story de café da manhã sem elementos", afterAlt: "Story de café da manhã com stickers" },
@@ -75,7 +75,7 @@ const TransformationPair = ({ item, index }: { item: Pair; index: number }) => (
 );
 
 const scrollToOffer = () => {
-  trackCtaClick({ cta_id: "after_before_after", cta_position: "after_before_after", price: 9.9 });
+  trackNavCtaClick({ cta_id: "after_before_after", cta_position: "after_before_after" });
   document.getElementById("oferta")?.scrollIntoView({ behavior: "smooth" });
 };
 
@@ -105,13 +105,13 @@ export const TransformationSection = () => {
         </div>
 
         <AnimatedSection delay={0.2}>
-          <div className="flex justify-center mt-10 md:mt-12">
-            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }}>
+          <div className="flex justify-center mt-10 md:mt-12 px-4">
+            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }} className="w-full sm:w-auto">
               <Button
                 variant="cta"
                 size="xl"
                 onClick={scrollToOffer}
-                className="rounded-full animate-pulse-border-slow"
+                className="rounded-full animate-pulse-border-slow w-full sm:w-auto whitespace-normal text-center leading-snug h-auto py-4 sm:h-14 sm:py-0 sm:whitespace-nowrap"
               >
                 Quero fazer isso nos meus Stories
               </Button>

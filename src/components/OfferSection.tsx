@@ -2,12 +2,12 @@ import { Button } from "@/components/ui/button";
 import { Check, Shield, Zap, Gift, Star, Crown } from "lucide-react";
 import { motion } from "framer-motion";
 import AnimatedSection from "./AnimatedSection";
-import { trackCtaClick } from "@/lib/tracking";
+import { trackPurchaseCtaClick } from "@/lib/tracking";
 
 const openCheckout = (plan: "basico" | "premium", price: number, url: string) => {
   // cta_click is a distinct custom event from the real InitiateCheckout,
   // which continues to be fired externally by Kirvano/UTMify on this same click.
-  trackCtaClick({ cta_id: `main_offer_${plan}`, cta_position: "main_offer", plan, price });
+  trackPurchaseCtaClick({ cta_id: `main_offer_${plan}`, cta_position: "main_offer", plan, price });
   window.open(url, "_blank");
 };
 
@@ -50,8 +50,8 @@ const OfferSection = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
           {/* Basic Plan */}
-          <AnimatedSection direction="left" delay={0.2}>
-            <motion.div 
+          <AnimatedSection direction="left" delay={0.2} className="order-2 md:order-1">
+            <motion.div
               className="bg-card rounded-3xl shadow-card border border-border overflow-hidden h-full"
               whileHover={{ y: -8 }}
               transition={{ duration: 0.3 }}
@@ -113,19 +113,19 @@ const OfferSection = () => {
           </AnimatedSection>
 
           {/* Premium Plan */}
-          <AnimatedSection direction="right" delay={0.3}>
-            <motion.div 
+          <AnimatedSection direction="right" delay={0.3} className="order-1 md:order-2">
+            <motion.div
               className="bg-card rounded-3xl shadow-elevated border-2 border-primary overflow-hidden relative animate-pulse-border h-full"
               whileHover={{ y: -12, scale: 1.02 }}
               transition={{ duration: 0.3 }}
             >
               {/* Badge */}
-              <motion.div 
+              <motion.div
                 className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 px-4 py-1 bg-primary text-primary-foreground text-xs font-medium rounded-full shadow-md z-10"
                 animate={{ y: [0, -3, 0] }}
                 transition={{ duration: 1.5, repeat: Infinity }}
               >
-                Mais Popular
+                Mais escolhido
               </motion.div>
 
               <div className="bg-gradient-rose p-6 text-center">
@@ -169,7 +169,7 @@ const OfferSection = () => {
                 >
                   <div className="flex items-center gap-2 text-sm text-foreground/80">
                     <Gift className="w-4 h-4 text-gold" />
-                    <span>Inclui todos os bônus exclusivos!</span>
+                    <span>Tudo do Pack Básico + bônus exclusivos</span>
                   </div>
                 </motion.div>
 
@@ -177,7 +177,7 @@ const OfferSection = () => {
                   <p className="text-muted-foreground text-sm mb-1">
                     De <span className="line-through">R$ 97,90</span> por apenas
                   </p>
-                  <motion.div 
+                  <motion.div
                     className="flex items-baseline justify-center gap-1"
                     animate={{ scale: [1, 1.08, 1] }}
                     transition={{ duration: 2, repeat: Infinity }}
@@ -188,16 +188,19 @@ const OfferSection = () => {
                   <p className="text-xs text-muted-foreground mt-2">
                     Pagamento único · Melhor custo-benefício
                   </p>
+                  <p className="text-xs text-primary font-medium mt-1">
+                    Apenas R$ 10 a mais que o Básico
+                  </p>
                 </div>
 
                 <motion.div
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.98 }}
                 >
-                  <Button 
-                    variant="cta" 
-                    size="lg" 
-                    className="w-full rounded-full py-6 text-base animate-pulse-border-slow"
+                  <Button
+                    variant="cta"
+                    size="xl"
+                    className="w-full rounded-full text-base animate-pulse-border-slow whitespace-normal text-center leading-snug h-auto py-4 sm:h-14 sm:py-0 sm:whitespace-nowrap"
                     onClick={() => openCheckout('premium', 19.9, 'https://pay.kirvano.com/6d597f2b-b9c5-42e4-89a3-6d84cefd3f12')}
                   >
                     Baixar agora e elevar meu Instagram

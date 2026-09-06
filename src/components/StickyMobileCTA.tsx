@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
 import { useIsMobile } from "@/hooks/use-mobile";
-import { trackCtaClick } from "@/lib/tracking";
+import { trackNavCtaClick } from "@/lib/tracking";
 
 const SHOW_AFTER_PX = 500;
 
@@ -20,7 +20,7 @@ const StickyMobileCTA = () => {
   const handleClick = () => {
     // This only scrolls to the offer/plans section — it never opens checkout,
     // so it must never be mistaken for InitiateCheckout.
-    trackCtaClick({ cta_id: "sticky_mobile", cta_position: "sticky", price: 9.9 });
+    trackNavCtaClick({ cta_id: "sticky", cta_position: "sticky" });
     document.getElementById("oferta")?.scrollIntoView({ behavior: "smooth" });
   };
 

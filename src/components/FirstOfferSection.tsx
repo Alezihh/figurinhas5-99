@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Check, Zap } from "lucide-react";
 import { motion } from "framer-motion";
 import AnimatedSection from "./AnimatedSection";
-import { trackCtaClick } from "@/lib/tracking";
+import { trackNavCtaClick } from "@/lib/tracking";
 
 const highlights = [
   "+15.000 figurinhas estéticas",
@@ -11,7 +11,7 @@ const highlights = [
 ];
 
 const scrollToOffer = () => {
-  trackCtaClick({ cta_id: "mid_offer_primary", cta_position: "mid_offer", price: 9.9 });
+  trackNavCtaClick({ cta_id: "mid_offer", cta_position: "mid_offer" });
   document.getElementById("oferta")?.scrollIntoView({ behavior: "smooth" });
 };
 

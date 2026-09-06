@@ -2,19 +2,19 @@ import { Button } from "@/components/ui/button";
 import heroMockup from "@/assets/hero-mockup.png";
 import { ArrowDown, ArrowRight, Sparkles } from "lucide-react";
 import { motion } from "framer-motion";
-import { trackCtaClick } from "@/lib/tracking";
+import { trackNavCtaClick } from "@/lib/tracking";
 
 const flowSteps = ["Escolha", "Adicione", "Poste"];
 
 const HeroSection = () => {
   const scrollToOffer = () => {
-    trackCtaClick({ cta_id: "hero_primary", cta_position: "hero", price: 9.9 });
+    trackNavCtaClick({ cta_id: "hero_primary", cta_position: "hero" });
     const element = document.getElementById("oferta");
     element?.scrollIntoView({ behavior: "smooth" });
   };
 
   const scrollToVideo = () => {
-    trackCtaClick({ cta_id: "hero_secondary", cta_position: "hero", price: 9.9 });
+    trackNavCtaClick({ cta_id: "hero_secondary", cta_position: "hero" });
     const element = document.getElementById("video-demo");
     element?.scrollIntoView({ behavior: "smooth" });
   };
@@ -142,7 +142,12 @@ const HeroSection = () => {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.98 }}
               >
-                <Button variant="cta" size="xl" onClick={scrollToOffer} className="animate-pulse-border-slow rounded-full w-full sm:w-auto">
+                <Button
+                  variant="cta"
+                  size="xl"
+                  onClick={scrollToOffer}
+                  className="animate-pulse-border-slow rounded-full w-full sm:w-auto whitespace-normal text-center leading-snug h-auto py-4 sm:h-14 sm:py-0 sm:whitespace-nowrap"
+                >
                   Quero acessar as +15.000 figurinhas
                 </Button>
               </motion.div>
