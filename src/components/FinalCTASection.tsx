@@ -2,9 +2,11 @@ import { Button } from "@/components/ui/button";
 import { Sparkles } from "lucide-react";
 import { motion } from "framer-motion";
 import AnimatedSection from "./AnimatedSection";
+import { trackCtaClick } from "@/lib/tracking";
 
 const FinalCTASection = () => {
   const scrollToOffer = () => {
+    trackCtaClick({ cta_id: "final_cta", cta_position: "final", price: 9.9 });
     const element = document.getElementById("oferta");
     element?.scrollIntoView({ behavior: "smooth" });
   };

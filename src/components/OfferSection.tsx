@@ -2,6 +2,14 @@ import { Button } from "@/components/ui/button";
 import { Check, Shield, Zap, Gift, Star, Crown } from "lucide-react";
 import { motion } from "framer-motion";
 import AnimatedSection from "./AnimatedSection";
+import { trackCtaClick } from "@/lib/tracking";
+
+const openCheckout = (plan: "basico" | "premium", price: number, url: string) => {
+  // cta_click is a distinct custom event from the real InitiateCheckout,
+  // which continues to be fired externally by Kirvano/UTMify on this same click.
+  trackCtaClick({ cta_id: `main_offer_${plan}`, cta_position: "main_offer", plan, price });
+  window.open(url, "_blank");
+};
 
 const basicItems = [
   "+15.000 Figurinhas Estéticas",
@@ -96,7 +104,7 @@ const OfferSection = () => {
                   variant="outline" 
                   size="lg" 
                   className="w-full"
-                  onClick={() => window.open('https://pay.kirvano.com/0c64f1e6-77f4-49e1-b824-4b80f90c2101', '_blank')}
+                  onClick={() => openCheckout('basico', 9.9, 'https://pay.kirvano.com/0c64f1e6-77f4-49e1-b824-4b80f90c2101')}
                 >
                   Quero o Pack Básico
                 </Button>
@@ -190,7 +198,7 @@ const OfferSection = () => {
                     variant="cta" 
                     size="lg" 
                     className="w-full rounded-full py-6 text-base animate-pulse-border-slow"
-                    onClick={() => window.open('https://pay.kirvano.com/6d597f2b-b9c5-42e4-89a3-6d84cefd3f12', '_blank')}
+                    onClick={() => openCheckout('premium', 19.9, 'https://pay.kirvano.com/6d597f2b-b9c5-42e4-89a3-6d84cefd3f12')}
                   >
                     Baixar agora e elevar meu Instagram
                   </Button>

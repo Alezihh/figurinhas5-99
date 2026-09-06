@@ -34,36 +34,6 @@ const bonusCards = [
   },
 ];
 
-const nichadasItems = [
-  "Home Office | Work",
-  "Academia | Treino | Corrida",
-  "Nutricionista",
-  "Confeitaria",
-  "Direito | Advocacia",
-  "Esteticista",
-  "Dentista",
-  "Lash Designer",
-  "Manicure",
-  "Terapia | Psicologia",
-  "Enfermagem",
-  "E muito mais...",
-];
-
-const universaisItems = [
-  "Bom dia / Tarde / Noite",
-  "Clima / Tempo",
-  "Caixinha de Perguntas",
-  "Elementos 3D",
-  "Comida",
-  "Café / Chá",
-  "Cristã",
-  "Férias / Praia",
-  "Frases",
-  "Maternidade",
-  "Dona de Casa",
-  "E muito mais...",
-];
-
 const YouTubeWithSound = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const playerRef = useRef<any>(null);
@@ -270,89 +240,6 @@ const BonusSection = () => {
               </AnimatedSection>
             );
           })}
-        </div>
-
-        {/* Nichos Section */}
-        <AnimatedSection delay={0.3}>
-          <div className="text-center mb-10">
-            <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-foreground">
-              São mais de <motion.span 
-                className="text-primary"
-                animate={{ scale: [1, 1.1, 1] }}
-                transition={{ duration: 2, repeat: Infinity }}
-              >10.000 figurinhas</motion.span> para os mais diversos nichos
-            </h3>
-          </div>
-        </AnimatedSection>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-          {/* Nichadas */}
-          <AnimatedSection direction="left" delay={0.4}>
-            <motion.div 
-              className="bg-card/80 backdrop-blur-sm rounded-2xl p-6 shadow-card border border-border/50"
-              whileHover={{ scale: 1.02 }}
-              transition={{ duration: 0.3 }}
-            >
-              <h4 className="text-2xl md:text-3xl font-bold text-primary text-center mb-1">
-                Nichadas
-              </h4>
-              <div className="border-b-2 border-dashed border-primary/30 mb-4" />
-              <ul className="space-y-2">
-                {nichadasItems.map((item, index) => (
-                  <motion.li
-                    key={index}
-                    className={`flex items-center gap-3 text-sm md:text-base ${
-                      item === "E muito mais..." ? "text-primary font-medium" : "text-foreground"
-                    }`}
-                    initial={{ opacity: 0, x: -20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 0.05 * index, duration: 0.3 }}
-                    viewport={{ once: true }}
-                  >
-                    <motion.div whileHover={{ scale: 1.3 }}>
-                      <Check className="w-4 h-4 text-primary flex-shrink-0" />
-                    </motion.div>
-                    {item}
-                  </motion.li>
-                ))}
-              </ul>
-              <div className="border-t-2 border-dashed border-primary/30 mt-4" />
-            </motion.div>
-          </AnimatedSection>
-
-          {/* Universais */}
-          <AnimatedSection direction="right" delay={0.5}>
-            <motion.div 
-              className="bg-card/80 backdrop-blur-sm rounded-2xl p-6 shadow-card border border-border/50"
-              whileHover={{ scale: 1.02 }}
-              transition={{ duration: 0.3 }}
-            >
-              <h4 className="text-2xl md:text-3xl font-bold text-primary text-center mb-1">
-                Universais
-              </h4>
-              <div className="border-b-2 border-dashed border-primary/30 mb-4" />
-              <ul className="space-y-2">
-                {universaisItems.map((item, index) => (
-                  <motion.li
-                    key={index}
-                    className={`flex items-center gap-3 text-sm md:text-base ${
-                      item === "E muito mais..." ? "text-primary font-medium" : "text-foreground"
-                    }`}
-                    initial={{ opacity: 0, x: 20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 0.05 * index, duration: 0.3 }}
-                    viewport={{ once: true }}
-                  >
-                    <motion.div whileHover={{ scale: 1.3 }}>
-                      <Check className="w-4 h-4 text-primary flex-shrink-0" />
-                    </motion.div>
-                    {item}
-                  </motion.li>
-                ))}
-              </ul>
-              <div className="border-t-2 border-dashed border-primary/30 mt-4" />
-            </motion.div>
-          </AnimatedSection>
         </div>
 
         {/* Video Demo */}

@@ -1,6 +1,13 @@
 import { Star } from "lucide-react";
 import { motion } from "framer-motion";
 import AnimatedSection from "./AnimatedSection";
+import { Button } from "@/components/ui/button";
+import { trackCtaClick } from "@/lib/tracking";
+
+const scrollToOffer = () => {
+  trackCtaClick({ cta_id: "social_proof_cta", cta_position: "social_proof", price: 9.9 });
+  document.getElementById("oferta")?.scrollIntoView({ behavior: "smooth" });
+};
 
 const testimonials = [
   {
@@ -125,6 +132,21 @@ const SocialProofSection = () => {
             </AnimatedSection>
           ))}
         </div>
+
+        <AnimatedSection delay={0.2}>
+          <div className="flex justify-center mt-12">
+            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }}>
+              <Button
+                variant="cta"
+                size="xl"
+                onClick={scrollToOffer}
+                className="rounded-full animate-pulse-border-slow"
+              >
+                Quero acessar agora
+              </Button>
+            </motion.div>
+          </div>
+        </AnimatedSection>
       </div>
     </section>
   );
