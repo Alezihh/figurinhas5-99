@@ -15,7 +15,7 @@ const HeroSection = () => {
 
   const scrollToVideo = () => {
     trackNavCtaClick({ cta_id: "hero_secondary", cta_position: "hero" });
-    const element = document.getElementById("video-demo");
+    const element = document.getElementById("produto");
     element?.scrollIntoView({ behavior: "smooth" });
   };
 

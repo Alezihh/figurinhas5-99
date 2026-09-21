@@ -1,6 +1,5 @@
-import { Check, Sparkles, Video, Image, Box } from "lucide-react";
+import { Sparkles, Video, Image, Box } from "lucide-react";
 import { motion } from "framer-motion";
-import { useEffect, useRef, useState } from "react";
 import AnimatedSection from "./AnimatedSection";
 
 const bonusCards = [
@@ -33,121 +32,6 @@ const bonusCards = [
     icon: Box,
   },
 ];
-
-const YouTubeWithSound = () => {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const playerRef = useRef<any>(null);
-  const [isVisible, setIsVisible] = useState(false);
-  const [apiReady, setApiReady] = useState(false);
-  const userInteractedRef = useRef(false);
-  const hasUnmutedRef = useRef(false);
-
-  // Track any user interaction on the page
-  useEffect(() => {
-    const markInteracted = () => {
-      userInteractedRef.current = true;
-      // Try to unmute if player is visible and playing
-      const player = playerRef.current;
-      if (player && player.unMute && !hasUnmutedRef.current && isVisible) {
-        player.unMute();
-        player.setVolume(100);
-        hasUnmutedRef.current = true;
-      }
-    };
-    window.addEventListener("click", markInteracted, { once: true });
-    window.addEventListener("touchstart", markInteracted, { once: true });
-    window.addEventListener("scroll", markInteracted, { once: true });
-    window.addEventListener("keydown", markInteracted, { once: true });
-    return () => {
-      window.removeEventListener("click", markInteracted);
-      window.removeEventListener("touchstart", markInteracted);
-      window.removeEventListener("scroll", markInteracted);
-      window.removeEventListener("keydown", markInteracted);
-    };
-  }, [isVisible]);
-
-  // Load YouTube IFrame API
-  useEffect(() => {
-    if ((window as any).YT && (window as any).YT.Player) {
-      setApiReady(true);
-      return;
-    }
-    const tag = document.createElement("script");
-    tag.src = "https://www.youtube.com/iframe_api";
-    document.head.appendChild(tag);
-    (window as any).onYouTubeIframeAPIReady = () => setApiReady(true);
-  }, []);
-
-  // Create player when API is ready
-  useEffect(() => {
-    if (!apiReady) return;
-    playerRef.current = new (window as any).YT.Player("yt-player", {
-      videoId: "LVljMU-MBnQ",
-      playerVars: {
-        autoplay: 0,
-        loop: 1,
-        playlist: "LVljMU-MBnQ",
-        controls: 0,
-        modestbranding: 1,
-        rel: 0,
-        playsinline: 1,
-        mute: 1,
-      },
-      events: {
-        onReady: () => {
-          if (isVisible) {
-            playerRef.current.playVideo();
-            if (userInteractedRef.current && !hasUnmutedRef.current) {
-              setTimeout(() => {
-                playerRef.current.unMute();
-                playerRef.current.setVolume(100);
-                hasUnmutedRef.current = true;
-              }, 300);
-            }
-          }
-        },
-      },
-    });
-  }, [apiReady]);
-
-  // Observe visibility
-  useEffect(() => {
-    const container = containerRef.current;
-    if (!container) return;
-    const observer = new IntersectionObserver(
-      ([entry]) => setIsVisible(entry.isIntersecting),
-      { threshold: 0.5 }
-    );
-    observer.observe(container);
-    return () => observer.disconnect();
-  }, []);
-
-  // Play/pause and unmute based on visibility
-  useEffect(() => {
-    const player = playerRef.current;
-    if (!player || !player.playVideo) return;
-    if (isVisible) {
-      player.playVideo();
-      if (userInteractedRef.current && !hasUnmutedRef.current) {
-        setTimeout(() => {
-          player.unMute();
-          player.setVolume(100);
-          hasUnmutedRef.current = true;
-        }, 300);
-      }
-    } else {
-      player.pauseVideo();
-      // Reset so it unmutes again next time it's visible
-      hasUnmutedRef.current = false;
-    }
-  }, [isVisible]);
-
-  return (
-    <div id="video-demo" ref={containerRef} className="relative w-full max-w-sm mx-auto aspect-[9/16] rounded-2xl shadow-card border border-border/50 overflow-hidden">
-      <div id="yt-player" className="w-full h-full" />
-    </div>
-  );
-};
 
 const BonusSection = () => {
   return (
@@ -241,13 +125,6 @@ const BonusSection = () => {
             );
           })}
         </div>
-
-        {/* Video Demo */}
-        <AnimatedSection delay={0.6}>
-          <div className="mt-12 flex justify-center">
-            <YouTubeWithSound />
-          </div>
-        </AnimatedSection>
       </div>
     </section>
   );
