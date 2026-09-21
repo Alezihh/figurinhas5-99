@@ -100,7 +100,7 @@ const HeroSection = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5, duration: 0.6 }}
           >
-            Tenha acesso a um app com milhares de figurinhas para academia, viagens, estudos, skincare, maternidade, fé, rotina e muito mais.
+            Tenha acesso a um Pack de Figurinhas com milhares de opções para academia, viagens, estudos, skincare, maternidade, fé, rotina e muito mais.
           </motion.p>
 
           <motion.p
@@ -186,7 +186,7 @@ const HeroSection = () => {
             />
             <motion.img
               src={heroMockup}
-              alt="Preview do app Aesthetic Stories com milhares de figurinhas"
+              alt="Preview do Pack de Figurinhas Aesthetic Stories"
               className="relative w-full max-w-xl md:max-w-2xl lg:max-w-3xl xl:max-w-4xl drop-shadow-2xl"
               style={{ imageRendering: 'crisp-edges' }}
               whileHover={{ scale: 1.03 }}
