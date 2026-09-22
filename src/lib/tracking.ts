@@ -14,12 +14,18 @@ export type CtaPosition =
   | "sticky"
   | "final";
 
+// Only the Pack's own Meta Pixels (one per ad account). trackSingleCustom keeps
+// cta_click from reaching any other Pixel initialized on the page.
+const META_PIXEL_IDS = ["999191322539506", "1411305726923506"] as const;
+
 const pushCtaClick = (payload: Record<string, unknown>) => {
   window.dataLayer = window.dataLayer || [];
   window.dataLayer.push(payload);
 
   if (typeof window.fbq === "function") {
-    window.fbq("trackCustom", "cta_click", payload);
+    META_PIXEL_IDS.forEach((pixelId) => {
+      window.fbq?.("trackSingleCustom", pixelId, "cta_click", payload);
+    });
   }
 };
 
