@@ -39,7 +39,7 @@ const StickyMobileCTA = () => {
           <div className="min-w-0">
             <p className="text-xs font-medium text-foreground truncate">Aesthetic Stories</p>
             <p className="text-xs text-muted-foreground">
-              A partir de <span className="font-semibold text-foreground">R$ 9,90</span>
+              A partir de <span className="font-semibold text-foreground">R$ 5,99</span>
             </p>
           </div>
           <Button

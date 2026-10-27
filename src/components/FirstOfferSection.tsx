@@ -6,7 +6,7 @@ import { trackNavCtaClick } from "@/lib/tracking";
 
 const highlights = [
   "+15.000 figurinhas estéticas",
-  "Acesso imediato e vitalício",
+  "Acesso imediato",
   "Pagamento único",
 ];
 
@@ -41,7 +41,7 @@ const FirstOfferSection = () => {
 
             <p className="text-muted-foreground text-sm mb-1">A partir de</p>
             <p className="text-3xl md:text-4xl font-serif text-foreground mb-6">
-              R$ 9<span className="text-lg text-muted-foreground">,90</span>
+              R$ 5<span className="text-lg text-muted-foreground">,99</span>
             </p>
 
             <motion.div

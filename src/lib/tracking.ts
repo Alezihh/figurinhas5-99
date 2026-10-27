@@ -11,6 +11,7 @@ export type CtaPosition =
   | "mid_offer"
   | "social_proof"
   | "main_offer"
+  | "upsell_popup"
   | "sticky"
   | "final";
 

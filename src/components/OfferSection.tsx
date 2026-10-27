@@ -1,19 +1,23 @@
 import { Button } from "@/components/ui/button";
 import { Check, Shield, Zap, Gift, Star, Crown } from "lucide-react";
 import { motion } from "framer-motion";
+import { useState } from "react";
 import AnimatedSection from "./AnimatedSection";
-import { trackPurchaseCtaClick } from "@/lib/tracking";
+import UpsellDialog, { UPSELL_CHECKOUT_URL, UPSELL_PRICE } from "./UpsellDialog";
+import { trackPurchaseCtaClick, trackNavCtaClick } from "@/lib/tracking";
 
-const openCheckout = (plan: "basico" | "premium", price: number, url: string) => {
+const BASIC_CHECKOUT_URL = "https://pay.kirvano.com/ce6097b9-91aa-47a8-88a7-d317fd1806ea";
+
+const openCheckout = (plan: "basico" | "premium", price: number, url: string, ctaId = `main_offer_${plan}`) => {
   // cta_click is a distinct custom event from the real InitiateCheckout,
   // which continues to be fired externally by Kirvano/UTMify on this same click.
-  trackPurchaseCtaClick({ cta_id: `main_offer_${plan}`, cta_position: "main_offer", plan, price });
+  trackPurchaseCtaClick({ cta_id: ctaId, cta_position: ctaId.startsWith("upsell") ? "upsell_popup" : "main_offer", plan, price });
   window.open(url, "_blank");
 };
 
 const basicItems = [
   "+15.000 Figurinhas Estéticas",
-  "Acesso vitalício",
+  "Acesso por 3 meses",
 ];
 
 const premiumItems = [
@@ -30,8 +34,29 @@ const premiumItems = [
 ];
 
 const OfferSection = () => {
+  const [upsellOpen, setUpsellOpen] = useState(false);
+
+  const openUpsell = () => {
+    // Clicking Básico no longer goes straight to checkout — it opens the upgrade popup.
+    trackNavCtaClick({ cta_id: "main_offer_basico_upsell_open", cta_position: "main_offer" });
+    setUpsellOpen(true);
+  };
+
   return (
     <section id="oferta" className="bg-gradient-hero section-padding">
+      <UpsellDialog
+        open={upsellOpen}
+        onOpenChange={setUpsellOpen}
+        includedItems={premiumItems}
+        onAccept={() => {
+          openCheckout("premium", UPSELL_PRICE, UPSELL_CHECKOUT_URL, "upsell_popup_premium");
+          setUpsellOpen(false);
+        }}
+        onDecline={() => {
+          openCheckout("basico", 5.99, BASIC_CHECKOUT_URL, "upsell_popup_basico");
+          setUpsellOpen(false);
+        }}
+      />
       <div className="container mx-auto px-4 max-w-5xl">
         <div className="text-center mb-12">
           <AnimatedSection>
@@ -92,8 +117,8 @@ const OfferSection = () => {
                     animate={{ scale: [1, 1.05, 1] }}
                     transition={{ duration: 2, repeat: Infinity }}
                   >
-                    <span className="text-4xl md:text-5xl font-serif text-foreground">R$ 9</span>
-                    <span className="text-muted-foreground">,90</span>
+                    <span className="text-4xl md:text-5xl font-serif text-foreground">R$ 5</span>
+                    <span className="text-muted-foreground">,99</span>
                   </motion.div>
                   <p className="text-xs text-muted-foreground mt-2">
                     Pagamento único
@@ -104,7 +129,7 @@ const OfferSection = () => {
                   variant="outline" 
                   size="lg" 
                   className="w-full"
-                  onClick={() => openCheckout('basico', 9.9, 'https://pay.kirvano.com/0c64f1e6-77f4-49e1-b824-4b80f90c2101')}
+                  onClick={openUpsell}
                 >
                   Quero o Pack Básico
                 </Button>
@@ -189,7 +214,7 @@ const OfferSection = () => {
                     Pagamento único · Melhor custo-benefício
                   </p>
                   <p className="text-xs text-primary font-medium mt-1">
-                    Apenas R$ 10 a mais que o Básico
+                    Apenas R$ 13,91 a mais que o Básico
                   </p>
                 </div>
 
@@ -201,7 +226,7 @@ const OfferSection = () => {
                     variant="cta"
                     size="xl"
                     className="w-full rounded-full text-base animate-pulse-border-slow whitespace-normal text-center leading-snug h-auto py-4 sm:h-14 sm:py-0 sm:whitespace-nowrap"
-                    onClick={() => openCheckout('premium', 19.9, 'https://pay.kirvano.com/6d597f2b-b9c5-42e4-89a3-6d84cefd3f12')}
+                    onClick={() => openCheckout('premium', 19.9, 'https://pay.kirvano.com/71214509-d41c-4717-a8fb-d156d85078bc')}
                   >
                     Baixar agora e elevar meu Instagram
                   </Button>

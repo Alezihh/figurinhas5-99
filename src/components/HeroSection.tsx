@@ -1,10 +1,16 @@
 import { Button } from "@/components/ui/button";
 import heroMockup from "@/assets/hero-mockup.png";
-import { ArrowDown, ArrowRight, Sparkles } from "lucide-react";
+import { ArrowDown, ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
 import { trackNavCtaClick } from "@/lib/tracking";
 
 const flowSteps = ["Escolha", "Adicione", "Poste"];
+
+// Pack updates monthly: show the 1st of the current month and the last day of it.
+const formatDate = (date: Date) => date.toLocaleDateString("pt-BR");
+const today = new Date();
+const lastUpdate = formatDate(new Date(today.getFullYear(), today.getMonth(), 1));
+const nextUpdate = formatDate(new Date(today.getFullYear(), today.getMonth() + 1, 0));
 
 const HeroSection = () => {
   const scrollToOffer = () => {
@@ -67,40 +73,56 @@ const HeroSection = () => {
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
           <motion.div
-            className="inline-flex items-center gap-2 px-4 py-2 bg-accent/60 rounded-full mb-5"
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.2, duration: 0.5 }}
+            className="inline-flex flex-wrap justify-center px-5 py-2.5 mb-6 rounded-full border border-fuchsia-200 bg-gradient-to-r from-pink-50 to-purple-50 text-xs sm:text-sm text-foreground/70"
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.15, duration: 0.5 }}
           >
-            <motion.div
-              animate={{ rotate: [0, 360] }}
-              transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
-            >
-              <Sparkles className="w-4 h-4 text-primary" />
-            </motion.div>
-            <span className="text-sm font-medium text-foreground/80">+15.000 figurinhas para seus Stories</span>
+            <span>
+              Atualizado em <span className="font-semibold text-pink-600">{lastUpdate}</span>
+            </span>
+            <span className="mx-1.5">·</span>
+            <span>
+              Próxima atualização <span className="font-semibold text-pink-600">{nextUpdate}</span>
+            </span>
           </motion.div>
 
+          <div>
+            <motion.div
+              className="inline-flex items-center gap-2 px-4 py-1.5 bg-pink-100/80 rounded-full mb-5"
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 0.2, duration: 0.5 }}
+            >
+              <motion.span
+                className="w-1.5 h-1.5 rounded-full bg-pink-500"
+                animate={{ opacity: [1, 0.3, 1] }}
+                transition={{ duration: 1.5, repeat: Infinity }}
+              />
+              <span className="text-xs sm:text-sm font-display font-bold tracking-wide uppercase text-pink-700">
+                Pack Figurinhas Premium
+              </span>
+            </motion.div>
+          </div>
+
           <motion.h1
-            className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-[1.1] mb-5 text-foreground"
+            className="font-display font-extrabold tracking-tight text-4xl md:text-5xl lg:text-6xl leading-[1.08] mb-5 text-foreground"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3, duration: 0.7 }}
           >
-            Deixe qualquer{" "}
-            <span className="italic">story</span>{" "}
-            muito mais{" "}
-            <span className="text-gradient-gold italic">bonito</span>{" "}
-            em segundos
+            <span className="text-gradient-pink">+21.000</span> figurinhas
+            <br />
+            para os seus <span className="text-gradient-pink">stories</span>
           </motion.h1>
 
           <motion.p
-            className="text-lg md:text-xl text-muted-foreground mb-3 leading-relaxed max-w-xl mx-auto lg:mx-0"
+            className="text-lg md:text-xl text-muted-foreground mb-3 leading-relaxed max-w-md mx-auto lg:mx-0"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5, duration: 0.6 }}
           >
-            Tenha acesso a um Pack de Figurinhas com milhares de opções para academia, viagens, estudos, skincare, maternidade, fé, rotina e muito mais.
+            Pare o scroll, encante seus seguidores e venda mais com stories criativos, divertidos e únicos.
           </motion.p>
 
           <motion.p
@@ -148,7 +170,7 @@ const HeroSection = () => {
                   onClick={scrollToOffer}
                   className="animate-pulse-border-slow rounded-full w-full sm:w-auto whitespace-normal text-center leading-snug h-auto py-4 sm:h-14 sm:py-0 sm:whitespace-nowrap"
                 >
-                  Quero acessar as +15.000 figurinhas
+                  Quero acessar as +21.000 figurinhas
                 </Button>
               </motion.div>
               <motion.div
@@ -162,7 +184,7 @@ const HeroSection = () => {
             </div>
 
             <p className="text-sm text-muted-foreground">
-              A partir de <span className="font-semibold text-foreground">R$ 9,90</span> • pagamento único
+              A partir de <span className="font-semibold text-foreground">R$ 5,99</span> • pagamento único
             </p>
           </motion.div>
         </motion.div>
